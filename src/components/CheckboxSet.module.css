@@ -1,0 +1,15 @@
+.radioButtons {
+  display: flex;
+  padding: 0.5rem;
+  margin: 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checkboxButtons {
+  display: flex;
+  padding: 0.5rem;
+  margin: 1rem;
+  flex-direction: column;
+  justify-content: left;
+}

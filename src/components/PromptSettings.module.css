@@ -1,0 +1,19 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings span {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+}
+
+.settings label {
+  color: var(--text-800);
+  font-size: 1.2rem;
+}
+
+.settings span button-span {
+  flex-direction: row;
+}
