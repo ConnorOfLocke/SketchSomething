@@ -1,21 +1,28 @@
 import classes from "./CheckboxSet.module.css";
 
-function CheckboxSet({ dataSet, setName, legendText, isRadio, ...props }) {
+function CheckboxSet({ dataSet, setName, defaultValues, legendText, isRadio }) {
   return (
-    <fieldset className={isRadio ? classes.radioButtons : classes.checkboxButtons} {...props}>
+    <fieldset className={isRadio ? classes.radioButtons : classes.checkboxButtons}>
       <legend>{legendText}</legend>
-      {dataSet.map((data) => (
-        <div key={data}>
-          <input
-            type={isRadio ? "radio" : "checkbox"}
-            id={data}
-            value={data}
-            name={setName}
-            defaultChecked={true}
-          />
-          <label htmlFor={data}>{data}</label>
-        </div>
-      ))}
+
+      {dataSet.map((data) => {
+        let defValue = isRadio
+          ? defaultValues && defaultValues === data
+          : defaultValues && defaultValues.findIndex((value) => value === data) >= 0;
+
+        return (
+          <div key={data}>
+            <input
+              type={isRadio ? "radio" : "checkbox"}
+              id={data}
+              value={data}
+              name={setName}
+              defaultChecked={defValue}
+            />
+            <label htmlFor={data}>{data}</label>
+          </div>
+        );
+      })}
     </fieldset>
   );
 }

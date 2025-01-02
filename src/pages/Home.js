@@ -1,12 +1,14 @@
-import { PageLayout } from "../components/PageLayout";
-import PromptSettings from "../components/PromptSettings";
+import classes from "./HomePage.module.css";
+import SessionSettings from "../components/SessionSettings";
 
 function HomePage() {
   return (
-    <PageLayout>
-      <h1>Home Page</h1>
-      <PromptSettings />
-    </PageLayout>
+    <div className={classes.content}>
+      <div className={classes.innerContent}>
+        <h1>Sketch Something!</h1>
+        <SessionSettings />
+      </div>
+    </div>
   );
 }
 

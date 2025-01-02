@@ -1,22 +1,14 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import PromptsPage from "./pages/Prompts";
-import HomePage from "./pages/Home";
-import RootLayout from "./pages/Root";
-import { PromptSettingsAction } from "./components/PromptSettings";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <RootLayout />,
-    children: [
-      { index: true, element: <HomePage />, action: PromptSettingsAction },
-      { path: "prompts", element: <PromptsPage /> },
-    ],
-  },
-]);
+import { RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
+import SiteRouter from "./Router";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={SiteRouter} />
+    </Provider>
+  );
 }
 
 export default App;

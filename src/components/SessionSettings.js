@@ -1,7 +1,9 @@
-import classes from "./PromptSettings.module.css";
+import classes from "./SessionSettings.module.css";
 import CheckboxSet from "./forms/CheckboxSet";
-import { useFetcher } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import LabeledCheckbox from "./forms/LabeledCheckbox";
+import { sessionSettingsActions } from "../store/session-settings-slice";
+import { useNavigate } from "react-router";
 
 const SESSION_TIMES = ["15", "30", "45", "60", "75"];
 const SUBJECT_TYPES = ["Animals", "Household Objects", "National Icons"];
@@ -11,23 +13,41 @@ const subjectTypeID = "subjectType";
 const encouragingCheckID = "encouraging";
 const exercisesCheckID = "exercises";
 
-function PromptSettings() {
-  const fetcher = useFetcher();
-  //const { data, state } = fetcher;
+function SessionSettings() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const sessionSettings = useSelector((state) => state.sessionSettings);
+
+  async function onSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    const parsedData = {
+      sessionTime: parseInt(formData.get(sessionTimeID) || SESSION_TIMES[0]),
+      subjects: formData.getAll(subjectTypeID) || [],
+      encouraging: formData.get(encouragingCheckID) === "on" || false,
+      exercises: formData.get(exercisesCheckID) === "on" || false,
+    };
+
+    await dispatch(sessionSettingsActions.setSettings(parsedData));
+    navigate("/session");
+  }
 
   return (
     <>
-      <fetcher.Form method="post" className={classes.settings}>
+      <form onSubmit={onSubmit} className={classes.settings}>
         <CheckboxSet
           dataSet={SESSION_TIMES}
           setName={sessionTimeID}
           legendText={"How long so you want to draw for?"}
+          defaultValues={`${sessionSettings.sessionTime}`}
           isRadio
         />
         <CheckboxSet
           dataSet={SUBJECT_TYPES}
           setName={subjectTypeID}
           legendText={"Drawing Subject Types"}
+          defaultValues={sessionSettings.subjects}
         />
         <span>
           <LabeledCheckbox
@@ -47,21 +67,9 @@ function PromptSettings() {
           <button type="button">Advanced Settings </button>
           <button type="submit">Start Drawing!</button>
         </span>
-      </fetcher.Form>
+      </form>
     </>
   );
 }
 
-export async function PromptSettingsAction({ request }) {
-  /*const data = await request.formData();
-  const parsedData = {
-    sessionTime: parseInt(data.get(sessionTimeID) || SESSION_TIMES[0]),
-    subjects: data.getAll(subjectTypeID) || [],
-    encouraging: data.get(encouragingCheckID) === "on" || false,
-    exercises: data.get(exercisesCheckID) === "on" || false,
-  };*/
-
-  return { message: "We're doin it!" };
-}
-
-export default PromptSettings;
+export default SessionSettings;
