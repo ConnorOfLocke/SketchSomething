@@ -6,7 +6,13 @@ function CheckboxSet({ dataSet, setName, legendText, isRadio, ...props }) {
       <legend>{legendText}</legend>
       {dataSet.map((data) => (
         <div key={data}>
-          <input type={isRadio ? "radio" : "checkbox"} id={data} value={data} name={setName} />
+          <input
+            type={isRadio ? "radio" : "checkbox"}
+            id={data}
+            value={data}
+            name={setName}
+            defaultChecked={true}
+          />
           <label htmlFor={data}>{data}</label>
         </div>
       ))}
