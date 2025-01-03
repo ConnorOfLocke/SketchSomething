@@ -2,48 +2,91 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import Countdown from "../components/stages/Countdown";
 import Exercises from "../components/stages/Exercises";
+import PromptSet from "../components/stages/PromptSet";
+import { useNavigate } from "react-router";
+import Complete from "../components/stages/Complete";
+import { SUBJECTS } from "../data/settings";
 
 const countdownId = "countdown";
 const exerciesId = "exercises";
-const promptSessionId = "promptSession";
+const promptSetId = "promptSet";
+const completeId = "complete";
+
+function getFullSubject(subjectName) {
+  return SUBJECTS.find((subject) => subject.name === subjectName);
+}
 
 function createSession(sessionSettings) {
   const sessionSteps = [];
 
+  //Intro and exercises
   sessionSteps.push({ type: countdownId });
   if (sessionSettings.exercises) {
     sessionSteps.push({ type: exerciesId });
   }
 
-  for (let i = 0; i < sessionSettings.setTimes.length; i++) {
-    sessionSteps.push({ type: promptSessionId });
+  //sets
+  for (let i = 0; i < sessionSettings.setQuantity; i++) {
+    const promptSubjectName = sessionSettings.subjects[i % sessionSettings.subjects.length];
+
+    sessionSteps.push({
+      type: promptSetId,
+      setTime: sessionSettings.setTime,
+      encouraging: sessionSettings.encouraging,
+      promptsPerSet: sessionSettings.promptsPerSet,
+      subjectName: promptSubjectName,
+      promptSetIndex: i,
+      setQuantity: sessionSettings.setQuantity,
+    });
   }
+
+  //Outro
+  sessionSteps.push({
+    type: completeId,
+  });
 
   return sessionSteps;
 }
 
 function getSessionStep(sessionStep, onStepDone) {
-  console.log(sessionStep);
-  console.log(sessionStep.type === exerciesId);
   switch (sessionStep.type) {
     case countdownId:
       return <Countdown time={3000} onStepDone={onStepDone} />;
     case exerciesId:
       return <Exercises time={3000} onStepDone={onStepDone} />;
+    case promptSetId:
+      return (
+        <PromptSet
+          id={sessionStep}
+          time={sessionStep.setTime * 1000 * 60}
+          encouraging={sessionStep.encouraging}
+          subject={getFullSubject(sessionStep.subjectName)}
+          promptsPerSet={sessionStep.promptsPerSet}
+          promptSetIndex={sessionStep.promptSetIndex}
+          setQuantity={sessionStep.setQuantity}
+          onStepDone={onStepDone}
+        />
+      );
+    case completeId:
+      return <Complete onStepDone={onStepDone} />;
     default:
       return <p>Unrecognised Step type</p>;
   }
 }
 
 function SessionPage() {
+  const navigate = useNavigate();
   const sessionSettings = useSelector((state) => state.sessionSettings);
   const steps = createSession(sessionSettings);
 
   const [stepIndex, setStepIndex] = useState(0);
 
   function onStepDone() {
-    console.log("All done with this step yessir");
-    setStepIndex((prevStepIndex) => prevStepIndex + 1);
+    if (stepIndex + 1 >= steps.length) {
+      navigate("/");
+    } else {
+      setStepIndex((prevStepIndex) => prevStepIndex + 1);
+    }
   }
 
   const currentStep = getSessionStep(steps[stepIndex], onStepDone);

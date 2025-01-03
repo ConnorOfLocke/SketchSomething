@@ -1,6 +1,6 @@
 import classes from "./CheckboxSet.module.css";
 
-function CheckboxSet({ dataSet, setName, defaultValues, legendText, isRadio }) {
+function CheckboxSet({ dataSet, setName, defaultValues, legendText, isRadio, suffix }) {
   return (
     <fieldset className={isRadio ? classes.radioButtons : classes.checkboxButtons}>
       <legend>{legendText}</legend>
@@ -19,7 +19,7 @@ function CheckboxSet({ dataSet, setName, defaultValues, legendText, isRadio }) {
               name={setName}
               defaultChecked={defValue}
             />
-            <label htmlFor={data}>{data}</label>
+            <label htmlFor={data}>{suffix ? `${data}${suffix}` : data}</label>
           </div>
         );
       })}

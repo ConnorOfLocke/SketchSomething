@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const defaultSessionSettings = {
-  sessionTime: 30,
-  setTimes: [10, 10, 10],
+  setTime: 1,
+  setQuantity: 3,
+  promptsPerSet: 8,
   subjects: ["Animals"],
   encouraging: true,
   exercises: true,

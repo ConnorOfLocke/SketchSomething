@@ -7,7 +7,7 @@ function Countdown({ time, onStepDone }) {
   return (
     <SessionStepLayout>
       <progress value={remainingTime} max={time} />
-      <p>3,2,1 Less gooo</p>
+      <h2>3,2,1 Less gooo</h2>
     </SessionStepLayout>
   );
 }

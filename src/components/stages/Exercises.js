@@ -7,7 +7,7 @@ function Exercises({ time, onStepDone }) {
   return (
     <SessionStepLayout>
       <progress value={remainingTime} max={time} />
-      <p>Beeeeeeeeg Stretch</p>
+      <h2>Beeeeeeeeg Stretch</h2>
     </SessionStepLayout>
   );
 }
