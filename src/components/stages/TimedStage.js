@@ -1,6 +1,6 @@
 import useVisualTimer from "../../hooks/useVisualTimer";
 
-function TimedStage({ time, children, onStepDone }) {
+function TimedStage({ time, children, onStepDone, pausable }) {
   const { timeCount, pauseState, togglePauseState } = useVisualTimer(time, onStepDone);
 
   function onPauseClick() {
@@ -13,9 +13,11 @@ function TimedStage({ time, children, onStepDone }) {
         <progress value={time - timeCount} max={time} />
         {children}
       </section>
-      <span>
-        <button onClick={onPauseClick}>{pauseState ? "Unpause" : "Pause"} </button>
-      </span>
+      {pausable && (
+        <span>
+          <button onClick={onPauseClick}>{pauseState ? "Unpause" : "Pause"} </button>
+        </span>
+      )}
     </>
   );
 }
