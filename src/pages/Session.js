@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import Countdown from "../components/stages/Countdown";
-import Exercises from "../components/stages/Exercises";
-import PromptSet from "../components/stages/PromptSet";
+import Countdown from "../components/stages/timed-stages/Countdown";
+import Exercises from "../components/stages/timed-stages/Exercises";
+import PromptSet from "../components/stages/timed-stages/PromptSet";
 import { useNavigate } from "react-router";
 import Complete from "../components/stages/Complete";
 import { SUBJECTS } from "../data/settings";

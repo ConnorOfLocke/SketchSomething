@@ -1,27 +1,34 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const useVisualTimer = (time, onTimeout, timerInterval = 30) => {
-  const [remainingTime, setRemainingTime] = useState(time);
+  const [timeCount, setTimeCount] = useState(0);
+  const [pauseState, setPauseState] = useState(false);
+
+  const togglePauseState = useCallback(() => {
+    setPauseState((prevState) => !prevState);
+  }, [setPauseState]);
+
+  useEffect(() => {
+    if (timeCount >= time) onTimeout();
+  }, [timeCount, time, onTimeout]);
 
   useEffect(() => {
     let timer = null;
-    const start = new Date().getTime();
-    let lastFrameTime = start;
-    setRemainingTime(time);
+    let originalStart = new Date().getTime();
+    let lastFrameTime = originalStart;
 
     function timerInstance() {
       const now = new Date().getTime();
       const timePassed = now - lastFrameTime;
       lastFrameTime = now;
 
-      setRemainingTime(time - (now - start));
-
-      if (now - start > time) {
-        onTimeout();
-      } else {
-        const diff = timerInterval - timePassed;
-        timer = setTimeout(timerInstance, timerInterval + diff);
+      if (!pauseState) {
+        setTimeCount((curTime) => curTime + timePassed);
       }
+
+      //set the next "frame"
+      const diff = timerInterval - timePassed;
+      timer = setTimeout(timerInstance, timerInterval + diff);
     }
 
     timer = setTimeout(timerInstance, timerInterval);
@@ -29,9 +36,9 @@ const useVisualTimer = (time, onTimeout, timerInterval = 30) => {
     return () => {
       clearInterval(timer);
     };
-  }, [time, onTimeout, timerInterval]);
+  }, [time, onTimeout, timerInterval, pauseState]);
 
-  return { remainingTime };
+  return { timeCount, pauseState, togglePauseState };
 };
 
 export default useVisualTimer;
