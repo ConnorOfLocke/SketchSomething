@@ -89,11 +89,16 @@ function SessionPage() {
     }
   }
 
+  function onHomeButton() {
+    navigate("/");
+  }
+
   const currentStep = getSessionStep(steps[stepIndex], onStepDone);
 
   return (
     <>
       <h1>Session Page</h1>
+      <button onClick={onHomeButton}>Home</button>
       {currentStep}
     </>
   );
