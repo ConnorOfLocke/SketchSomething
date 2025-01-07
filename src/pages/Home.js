@@ -5,8 +5,12 @@ function HomePage() {
   return (
     <div className={classes.content}>
       <div className={classes.innerContent}>
-        <h1>Sketch Something!</h1>
-        <SessionSettings />
+        <div className={classes.borderBox}>
+          <header>
+            <h1>Sketch Something!</h1>
+          </header>
+          <SessionSettings />
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,14 @@
   margin: 1rem;
   flex-direction: row;
   justify-content: space-between;
+  border: 0.2rem solid var(--background-400);
+  border-radius: 0.5rem;
+}
+
+.radioButtons legend {
+  color: var(--text-800);
+  font-size: 1rem;
+  margin: 0 auto;
 }
 
 .checkboxButtons {
@@ -12,4 +20,12 @@
   margin: 1rem;
   flex-direction: column;
   justify-content: left;
+  border: 0.2rem solid var(--background-400);
+  border-radius: 0.5rem;
+}
+
+.checkboxButtons legend {
+  color: var(--text-800);
+  font-size: 1rem;
+  margin: 0 auto;
 }
