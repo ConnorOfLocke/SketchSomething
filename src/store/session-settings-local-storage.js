@@ -1,5 +1,5 @@
 import { createListenerMiddleware, isAnyOf } from "@reduxjs/toolkit";
-import sessionSettingsSlice, { sessionSettingsActions } from "./session-settings-slice";
+import { sessionSettingsActions } from "./session-settings-slice";
 
 const SETTINGS_KEY = "savedSettings";
 
