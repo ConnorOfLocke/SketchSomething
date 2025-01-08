@@ -26,6 +26,6 @@
   height: 0;
 }
 
-.borderBox h1 {
+.borderBox header h1 {
   background-color: var(--background-50);
 }

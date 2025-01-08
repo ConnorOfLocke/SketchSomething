@@ -1,0 +1,11 @@
+.prompt {
+  border: 0.2rem solid var(--primary-400);
+  background-color: var(--primary-400);
+  margin: 2rem 0;
+  padding: 0.5rem;
+  border-radius: 2rem;
+}
+
+.prompt h1 {
+  background-color: transparent;
+}

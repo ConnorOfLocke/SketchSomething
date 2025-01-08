@@ -69,7 +69,7 @@ function getSessionName(sessionStep) {
 function getSessionStep(sessionStep, onStepDone) {
   switch (sessionStep.type) {
     case countdownId:
-      return <Countdown time={3000} onStepDone={onStepDone} />;
+      return <Countdown time={4000} onStepDone={onStepDone} />;
     case exerciesId:
       return <Exercises time={3000} onStepDone={onStepDone} />;
     case promptSetId:
@@ -116,7 +116,7 @@ function SessionPage() {
   return (
     <>
       <ContentBox animate>
-        <BorderBox borderType={"secondary"}>
+        <BorderBox borderType={"background"}>
           <header>
             <h1>{getSessionName(steps[stepIndex])}</h1>
           </header>

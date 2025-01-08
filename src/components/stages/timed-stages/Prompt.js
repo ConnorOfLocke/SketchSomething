@@ -1,3 +1,4 @@
+import classes from "./Prompt.module.css";
 import TimedStage from "../TimedStage";
 
 function Prompt({ time, onStepDone, prompt, children }) {
@@ -5,9 +6,9 @@ function Prompt({ time, onStepDone, prompt, children }) {
     <>
       <TimedStage key={prompt} time={time} onStepDone={onStepDone} pausable>
         {children}
-        <span>
-          <h3>{prompt}</h3>
-        </span>
+        <div className={classes.prompt}>
+          <h1>{prompt}</h1>
+        </div>
       </TimedStage>
     </>
   );

@@ -1,10 +1,13 @@
 import TimedStage from "../TimedStage";
+import { COUNTDOWN_TEXTS } from "../../../data/settings";
 
-function Countdown({ time, onStepDone }) {
+function Countdown({ onStepDone }) {
+  const timerTexts = COUNTDOWN_TEXTS[Math.floor(Math.random() * COUNTDOWN_TEXTS.length)];
+
+  const time = timerTexts.length * 1000;
+
   return (
-    <TimedStage time={time} onStepDone={onStepDone} pausable>
-      <h2>3,2,1 Less gooo</h2>
-    </TimedStage>
+    <TimedStage time={time} onStepDone={onStepDone} pausable timerText={timerTexts}></TimedStage>
   );
 }
 
