@@ -38,9 +38,6 @@ function PromptSet({
   return (
     <Prompt prompt={subject.prompts[promptIndex]} time={timePerPrompt} onStepDone={onPromptDone}>
       <h2>
-        Set {1 + promptSetIndex} of {setQuantity}
-      </h2>
-      <h2>
         Drawing {subject.name} ({promptCount + 1} / {promptsPerSet})
       </h2>
     </Prompt>

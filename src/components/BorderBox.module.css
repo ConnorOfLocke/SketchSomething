@@ -1,0 +1,31 @@
+.borderBox {
+  border: 1rem solid var(--background-400);
+  border-radius: 1.5rem 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.borderBox.background {
+  border: 1rem solid var(--background-400);
+}
+
+.borderBox.primary {
+  border: 1rem solid var(--primary-400);
+}
+
+.borderBox.secondary {
+  border: 1rem solid var(--secondary-400);
+}
+
+.borderBox.accent {
+  border: 1rem solid var(--accent-400);
+}
+
+.borderBox header {
+  position: relative;
+  top: -4rem;
+  height: 0;
+}
+
+.borderBox h1 {
+  background-color: var(--background-50);
+}

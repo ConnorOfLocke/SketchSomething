@@ -1,4 +1,5 @@
 import useVisualTimer from "../../hooks/useVisualTimer";
+import StyledButton from "../forms/StyledButton";
 
 function TimedStage({ time, children, onStepDone, pausable }) {
   const { timeCount, pauseState, togglePauseState } = useVisualTimer(time, onStepDone);
@@ -15,7 +16,7 @@ function TimedStage({ time, children, onStepDone, pausable }) {
       </section>
       {pausable && (
         <span>
-          <button onClick={onPauseClick}>{pauseState ? "Unpause" : "Pause"} </button>
+          <StyledButton onClick={onPauseClick}>{pauseState ? "Unpause" : "Pause"} </StyledButton>
         </span>
       )}
     </>

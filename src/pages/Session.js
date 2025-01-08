@@ -6,6 +6,9 @@ import PromptSet from "../components/stages/timed-stages/PromptSet";
 import { useNavigate } from "react-router";
 import Complete from "../components/stages/Complete";
 import { SUBJECTS } from "../data/settings";
+import BorderBox from "../components/BorderBox";
+import ContentBox from "../components/ContentBox";
+import StyledButton from "../components/forms/StyledButton";
 
 const countdownId = "countdown";
 const exerciesId = "exercises";
@@ -46,6 +49,21 @@ function createSession(sessionSettings) {
   });
 
   return sessionSteps;
+}
+
+function getSessionName(sessionStep) {
+  switch (sessionStep.type) {
+    case countdownId:
+      return "Get ready!";
+    case exerciesId:
+      return "Stretch";
+    case promptSetId:
+      return `Set ${1 + sessionStep.promptSetIndex} of ${sessionStep.setQuantity}`;
+    case completeId:
+      return `Ya did it!!`;
+    default:
+      return "Unrecognised Step type";
+  }
 }
 
 function getSessionStep(sessionStep, onStepDone) {
@@ -97,9 +115,20 @@ function SessionPage() {
 
   return (
     <>
-      <h1>Session Page</h1>
-      <button onClick={onHomeButton}>Home</button>
-      {currentStep}
+      <ContentBox animate>
+        <BorderBox borderType={"secondary"}>
+          <header>
+            <h1>{getSessionName(steps[stepIndex])}</h1>
+          </header>
+
+          {currentStep}
+        </BorderBox>
+      </ContentBox>
+      <ContentBox>
+        <StyledButton buttonType="secondary" onClick={onHomeButton}>
+          Home
+        </StyledButton>
+      </ContentBox>
     </>
   );
 }
