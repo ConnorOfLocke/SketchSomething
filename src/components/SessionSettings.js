@@ -82,7 +82,7 @@ function SessionSettings() {
         </span>
         <span className="button-span">
           <StyledButton buttonType="secondary" type="button">
-            Advanced Settings
+            Advanced Settings (WIP)
           </StyledButton>
           <StyledButton buttonType="primary" type="submit">
             Start Drawing!
