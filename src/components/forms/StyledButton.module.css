@@ -6,7 +6,7 @@
   height: 3rem;
   width: 100%;
   font-family: "Lexend", serif;
-  border-radius: 1rem 1rem;
+  border-radius: 1rem;
   cursor: pointer;
   transition: background-color ease-in 100ms, color ease-in 100ms;
 }

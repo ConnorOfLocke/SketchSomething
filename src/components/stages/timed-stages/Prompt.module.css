@@ -1,9 +1,15 @@
 .prompt {
-  border: 0.2rem solid var(--primary-400);
+  border: 0.25rem solid var(--primary-400);
   background-color: var(--primary-400);
   margin: 2rem 0;
   padding: 0.5rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
+
+  transition: background-color 1s;
+}
+
+.prompt.paused {
+  background-color: var(--primary-800);
 }
 
 .prompt h1 {

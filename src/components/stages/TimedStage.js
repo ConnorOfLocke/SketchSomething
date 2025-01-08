@@ -1,7 +1,18 @@
+import { useEffect } from "react";
 import useVisualTimer from "../../hooks/useVisualTimer";
 import StyledButton from "../forms/StyledButton";
+import StyledProgress from "../forms/StyledProgress";
 
-function TimedStage({ time, children, onStepDone, pausable, skippable, timerText }) {
+function TimedStage({
+  time,
+  children,
+  onStepDone,
+  pausable,
+  skippable,
+  hideTimer,
+  timerText,
+  onPauseCallback = null,
+}) {
   const { timeCount, pauseState, togglePauseState } = useVisualTimer(time, onStepDone);
 
   function onPauseClick() {
@@ -11,6 +22,12 @@ function TimedStage({ time, children, onStepDone, pausable, skippable, timerText
   function onSkipClick() {
     onStepDone();
   }
+
+  useEffect(() => {
+    if (onPauseCallback) {
+      onPauseCallback(pauseState);
+    }
+  }, [pauseState, onPauseCallback]);
 
   let timerComponent = null;
   if (timerText) {
@@ -25,7 +42,7 @@ function TimedStage({ time, children, onStepDone, pausable, skippable, timerText
   return (
     <>
       <section>
-        <progress value={time - timeCount} max={time} />
+        {!hideTimer && <StyledProgress value={time - timeCount} max={time} isPaused={pauseState} />}
         <h1>{timerComponent}</h1>
         {children}
       </section>

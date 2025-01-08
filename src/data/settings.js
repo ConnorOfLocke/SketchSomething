@@ -187,7 +187,7 @@ export const COUNTDOWN_TEXTS = [
   ["3", "2", "1", "Let's Jam!"],
   ["Are you ready Steve?", "Mick? Andy?", "Alright fellahs!", "Lets GOOOOOOO!!"],
   ["It's time-", "to DU-DU-DU", "DUEL!"],
-  ["This is an art attack~", "This is an art attack!", "THIS IS ART ATTACK!"],
+  ["This is an art attack~", "This is an art attack!", "THIS IS...", "ART ATTACK!"],
   ["One Fish", "Two Fish", "Red Fish", "YOU FISH"],
   [
     "Slam it to the left!",
