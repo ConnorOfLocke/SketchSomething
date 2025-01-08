@@ -1,10 +1,11 @@
 import classes from "./SessionSettings.module.css";
 import CheckboxSet from "./forms/CheckboxSet";
 import { useDispatch, useSelector } from "react-redux";
-import LabeledCheckbox from "./forms/LabeledCheckbox";
 import { sessionSettingsActions } from "../store/session-settings-slice";
 import { useNavigate } from "react-router";
 import { SET_QUANTITY, SET_TIME, PROMPTS_PER_SET, SUBJECTS } from "../data/settings";
+import StyledCheckbox from "./forms/StyledCheckbox";
+import StyledButton from "./forms/StyledButton";
 
 const setTimeID = "setTime";
 const setQuantityID = "setQuantity";
@@ -41,22 +42,21 @@ function SessionSettings() {
         <CheckboxSet
           dataSet={SET_QUANTITY}
           setName={setQuantityID}
-          legendText={"How many sets?"}
+          legendText={"Sets"}
           defaultValues={sessionSettings.setQuantity}
           isRadio
         />
         <CheckboxSet
           dataSet={SET_TIME}
           setName={setTimeID}
-          legendText={"How long do you want each set to go for?"}
+          legendText={"Set Time (Mins)"}
           defaultValues={sessionSettings.setTime}
-          suffix={" mins"}
           isRadio
         />
         <CheckboxSet
           dataSet={PROMPTS_PER_SET}
           setName={promptsPerSetID}
-          legendText={"How many prompts per set?"}
+          legendText={"Prompts Per Set"}
           defaultValues={sessionSettings.promptsPerSet}
           isRadio
         />
@@ -67,22 +67,26 @@ function SessionSettings() {
           defaultValues={sessionSettings.subjects}
         />
         <span>
-          <LabeledCheckbox
+          <StyledCheckbox
             id={exercisesCheckID}
             defaultChecked={true}
-            label="Include hand stretching exercises"
+            value="Include hand stretches"
           />
         </span>
         <span>
-          <LabeledCheckbox
+          <StyledCheckbox
             id={encouragingCheckID}
             defaultChecked={true}
-            label="Include encouraging messages"
+            value="Include encouraging messages"
           />
         </span>
         <span className="button-span">
-          <button type="button">Advanced Settings </button>
-          <button type="submit">Start Drawing!</button>
+          <StyledButton buttonType="secondary" type="button">
+            Advanced Settings
+          </StyledButton>
+          <StyledButton buttonType="primary" type="submit">
+            Start Drawing!
+          </StyledButton>
         </span>
       </form>
     </>

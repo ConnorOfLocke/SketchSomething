@@ -3,17 +3,10 @@
   flex-direction: column;
 }
 
-.settings span {
-  display: flex;
-  flex-direction: row;
-  padding: 0.5rem 1rem;
+.settings > span {
+  margin: 1rem 0 0 0;
 }
 
-.settings label {
-  color: var(--text-800);
-  font-size: 1.2rem;
-}
-
-.settings span button-span {
+.settings > span button-span {
   flex-direction: row;
 }

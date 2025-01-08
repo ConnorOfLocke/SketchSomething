@@ -7,7 +7,7 @@
   margin-top: 8vh;
 
   background: var(--background-50);
-  box-shadow: 4px 0px 1rem var(--background-800);
+  box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
   border-radius: 2.5rem 2.5rem;
   padding: 1rem;
   animation-duration: 0.4s;

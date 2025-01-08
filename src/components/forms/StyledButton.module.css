@@ -1,0 +1,35 @@
+.primaryStyledButton,
+.secondaryStyledButton {
+  margin: 1rem 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 100%;
+  font-family: "Lexend", serif;
+  border-radius: 1rem 1rem;
+  cursor: pointer;
+  transition: background-color ease-in 100ms, color ease-in 100ms;
+}
+
+.primaryStyledButton {
+  color: var(--text-50);
+  background-color: var(--background-400);
+  border: 0.2rem solid var(--background-400);
+}
+
+.secondaryStyledButton {
+  color: var(--text-800);
+  background-color: transparent;
+  border: 0.2rem solid var(--background-400);
+}
+
+.primaryStyledButton:hover,
+.primaryStyledButton:focus {
+  background-color: var(--primary-400);
+  color: var(--text-800);
+}
+
+.secondaryStyledButton:hover,
+.secondaryStyledButton:focus {
+  background-color: var(--primary-400);
+}
