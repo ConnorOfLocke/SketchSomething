@@ -3,11 +3,18 @@ import classes from "./SessionSettings.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { sessionSettingsActions } from "../store/session-settings-slice";
 import { useNavigate } from "react-router";
-import { SET_QUANTITY, SET_TIME, PROMPTS_PER_SET, SUBJECTS } from "../data/settings";
+import {
+  SET_QUANTITY,
+  SET_TIME,
+  PROMPTS_PER_SET,
+  SUBJECTS,
+  WARM_UP_SESSION,
+  FULL_SESSION,
+} from "../data/settings";
 import FoldableArea from "./forms/FoldableArea";
 import { CheckboxSet, StyledCheckbox } from "./utils/checkboxs";
 import StyledButton from "./utils/button/StyledButton";
-import { CenteredColumn, CenteredRow } from "./utils/layouts";
+import { CenteredColumn } from "./utils/layouts";
 
 const setTimeID = "setTime";
 const setQuantityID = "setQuantity";
@@ -19,6 +26,16 @@ function SessionSettings() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const sessionSettings = useSelector((state) => state.sessionSettings);
+
+  async function onWarmupClicked() {
+    await dispatch(sessionSettingsActions.setSettings(WARM_UP_SESSION));
+    navigate("/session");
+  }
+
+  async function onFullSessionClicked() {
+    await dispatch(sessionSettingsActions.setSettings(FULL_SESSION));
+    navigate("/session");
+  }
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -66,7 +83,9 @@ function SessionSettings() {
             setName={subjectTypeID}
             legendText={"Drawing Subject Types"}
             defaultValues={sessionSettings.subjects}
-          />
+          >
+            <p>If no subjects are selected, they will be selected at random</p>
+          </CheckboxSet>
           <div className={classes.checkboxContainer}>
             <StyledCheckbox
               id={stretchesCheckID}
@@ -81,6 +100,16 @@ function SessionSettings() {
           </div>
         </FoldableArea>
       </form>
+      <div className={classes.buttonContainer}>
+        <CenteredColumn>
+          <StyledButton buttonType="primary" onClick={onWarmupClicked}>
+            Start Warm Up
+          </StyledButton>
+          <StyledButton buttonType="primary" onClick={onFullSessionClicked}>
+            Start Full Session
+          </StyledButton>
+        </CenteredColumn>
+      </div>
     </>
   );
 }

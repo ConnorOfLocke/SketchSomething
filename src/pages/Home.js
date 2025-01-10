@@ -1,7 +1,6 @@
 import classes from "./HomePage.module.css";
 import SessionSettings from "../components/SessionSettings";
-import { BorderBox, CenteredColumn, ContentBox } from "../components/utils/layouts";
-import { StyledButton } from "../components/utils/button";
+import { BorderBox, ContentBox } from "../components/utils/layouts";
 
 function HomePage() {
   return (
@@ -15,12 +14,6 @@ function HomePage() {
           <h3 className={classes.subtitleText}>Have fun and aim for "done" over perfect!</h3>
         </section>
         <SessionSettings />
-        <div className={classes.buttonContainer}>
-          <CenteredColumn>
-            <StyledButton buttonType="primary">Start Warm Up</StyledButton>
-            <StyledButton buttonType="primary">Full Session!</StyledButton>
-          </CenteredColumn>
-        </div>
       </BorderBox>
     </ContentBox>
   );

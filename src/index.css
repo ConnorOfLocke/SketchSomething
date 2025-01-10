@@ -128,13 +128,14 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+legend {
   font-family: "Lexend", serif;
   color: var(--text-800);
 }
 
-legend {
-  font-family: "Lexend", serif;
+p {
+  color: var(--text-800);
 }
 
 main {
@@ -146,5 +147,6 @@ main {
   background-image: url("../public/cork-board.png");
   text-align: center;
   width: auto;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 }

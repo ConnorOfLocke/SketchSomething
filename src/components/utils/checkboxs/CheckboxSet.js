@@ -2,7 +2,7 @@ import classes from "./CheckboxSet.module.css";
 import StyledCheckbox from "./StyledCheckbox";
 import StyledRadio from "./StyledRadio";
 
-function CheckboxSet({ dataSet, setName, defaultValues, legendText, isRadio, suffix }) {
+function CheckboxSet({ dataSet, setName, defaultValues, legendText, isRadio, suffix, children }) {
   return (
     <fieldset className={isRadio ? classes.radioButtons : classes.checkboxButtons}>
       <legend className={classes.buttonHeader}>{legendText}</legend>
@@ -38,6 +38,7 @@ function CheckboxSet({ dataSet, setName, defaultValues, legendText, isRadio, suf
 
         return box;
       })}
+      {children}
     </fieldset>
   );
 }

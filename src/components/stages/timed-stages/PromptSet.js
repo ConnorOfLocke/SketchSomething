@@ -1,15 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Prompt from "./Prompt";
 
-function PromptSet({
-  time,
-  promptsPerSet,
-  encouraging,
-  subject,
-  promptSetIndex,
-  setQuantity,
-  onStepDone,
-}) {
+function PromptSet({ time, promptsPerSet, subject, onStepDone }) {
   const [promptIndex, setPromptIndex] = useState(null);
   const [promptCount, setPromptCount] = useState(0);
 

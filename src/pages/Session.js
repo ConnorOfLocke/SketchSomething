@@ -20,14 +20,20 @@ function createSession(sessionSettings) {
   const sessionSteps = [];
 
   //Intro and stretches
-  sessionSteps.push({ type: countdownId });
   if (sessionSettings.stretches) {
     sessionSteps.push({ type: stretchesId });
   }
+  sessionSteps.push({ type: countdownId });
 
   //sets
   for (let i = 0; i < sessionSettings.setQuantity; i++) {
-    const promptSubjectName = sessionSettings.subjects[i % sessionSettings.subjects.length];
+    let promptSubjectName = "";
+    if (sessionSettings.subjects.length > 0) {
+      promptSubjectName = sessionSettings.subjects[i % sessionSettings.subjects.length];
+    } else {
+      const randomIndex = Math.floor(Math.random() * SUBJECTS.length);
+      promptSubjectName = SUBJECTS[randomIndex].name;
+    }
 
     sessionSteps.push({
       type: promptSetId,
