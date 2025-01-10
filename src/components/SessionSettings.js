@@ -7,13 +7,13 @@ import { SET_QUANTITY, SET_TIME, PROMPTS_PER_SET, SUBJECTS } from "../data/setti
 import FoldableArea from "./forms/FoldableArea";
 import { CheckboxSet, StyledCheckbox } from "./utils/checkboxs";
 import StyledButton from "./utils/button/StyledButton";
+import { CenteredColumn, CenteredRow } from "./utils/layouts";
 
 const setTimeID = "setTime";
 const setQuantityID = "setQuantity";
 const promptsPerSetID = "promptsPerSet";
 const subjectTypeID = "subjectType";
-const encouragingCheckID = "encouraging";
-const exercisesCheckID = "exercises";
+const stretchesCheckID = "stretches";
 
 function SessionSettings() {
   const dispatch = useDispatch();
@@ -29,8 +29,7 @@ function SessionSettings() {
       setQuantity: parseInt(formData.get(setQuantityID) || SET_QUANTITY[0]),
       promptsPerSet: parseInt(formData.get(promptsPerSetID) || PROMPTS_PER_SET[0]),
       subjects: formData.getAll(subjectTypeID) || [],
-      encouraging: formData.get(encouragingCheckID) === "on" || false,
-      exercises: formData.get(exercisesCheckID) === "on" || false,
+      stretches: formData.get(stretchesCheckID) === "on" || false,
     };
 
     await dispatch(sessionSettingsActions.setSettings(parsedData));
@@ -68,25 +67,18 @@ function SessionSettings() {
             legendText={"Drawing Subject Types"}
             defaultValues={sessionSettings.subjects}
           />
-          <span>
+          <div className={classes.checkboxContainer}>
             <StyledCheckbox
-              id={exercisesCheckID}
+              id={stretchesCheckID}
               defaultChecked={true}
               value="Include hand stretches"
             />
-          </span>
-          <span>
-            <StyledCheckbox
-              id={encouragingCheckID}
-              defaultChecked={true}
-              value="Include encouraging messages"
-            />
-          </span>
-          <span className={classes.buttonSpan}>
+          </div>
+          <div className={classes.buttonContainer}>
             <StyledButton buttonType="primary" type="submit">
               Start Custom Session
             </StyledButton>
-          </span>
+          </div>
         </FoldableArea>
       </form>
     </>

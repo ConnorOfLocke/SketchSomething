@@ -1,11 +1,8 @@
-.settings span {
-  width: 2rem;
+.settings .checkboxContainer {
+  padding: 0 1rem;
 }
 
-.settings span.buttonSpan {
+.settings .buttonContainer {
   margin-top: 1.5rem;
-}
-
-.settings span.buttonSpan button {
-  width: 80%;
+  padding: 0 1rem;
 }

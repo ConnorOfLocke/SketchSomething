@@ -5,8 +5,7 @@ const defaultSessionSettings = {
   setQuantity: 3,
   promptsPerSet: 8,
   subjects: ["Animals"],
-  encouraging: true,
-  exercises: true,
+  stretches: true,
 };
 
 const sessionSettingsSlice = createSlice({

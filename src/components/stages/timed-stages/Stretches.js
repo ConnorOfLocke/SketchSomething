@@ -1,6 +1,6 @@
 import TimedStage from "../TimedStage";
 
-function Exercises({ time, onStepDone }) {
+function Stretches({ time, onStepDone }) {
   return (
     <TimedStage time={time} onStepDone={onStepDone} pausable skippable>
       <h2>Beeeeeeeeg Stretch</h2>
@@ -8,4 +8,4 @@ function Exercises({ time, onStepDone }) {
   );
 }
 
-export default Exercises;
+export default Stretches;

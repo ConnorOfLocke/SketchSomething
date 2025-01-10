@@ -4,11 +4,11 @@ import { useNavigate } from "react-router";
 import { SUBJECTS } from "../data/settings";
 import { BorderBox, ContentBox } from "../components/utils/layouts";
 import { StyledButton } from "../components/utils/button";
-import { Countdown, Exercises, PromptSet } from "../components/stages/timed-stages";
+import { Countdown, Stretches, PromptSet } from "../components/stages/timed-stages";
 import { Complete } from "../components/stages";
 
 const countdownId = "countdown";
-const exerciesId = "exercises";
+const stretchesId = "stretches";
 const promptSetId = "promptSet";
 const completeId = "complete";
 
@@ -19,10 +19,10 @@ function getFullSubject(subjectName) {
 function createSession(sessionSettings) {
   const sessionSteps = [];
 
-  //Intro and exercises
+  //Intro and stretches
   sessionSteps.push({ type: countdownId });
-  if (sessionSettings.exercises) {
-    sessionSteps.push({ type: exerciesId });
+  if (sessionSettings.stretches) {
+    sessionSteps.push({ type: stretchesId });
   }
 
   //sets
@@ -52,7 +52,7 @@ function getSessionName(sessionStep) {
   switch (sessionStep.type) {
     case countdownId:
       return "Get ready!";
-    case exerciesId:
+    case stretchesId:
       return "Stretch";
     case promptSetId:
       return `Set ${1 + sessionStep.promptSetIndex} of ${sessionStep.setQuantity}`;
@@ -67,8 +67,8 @@ function getSessionStep(sessionStep, onStepDone) {
   switch (sessionStep.type) {
     case countdownId:
       return <Countdown onStepDone={onStepDone} />;
-    case exerciesId:
-      return <Exercises time={3000} onStepDone={onStepDone} />;
+    case stretchesId:
+      return <Stretches time={3000} onStepDone={onStepDone} />;
     case promptSetId:
       return (
         <PromptSet

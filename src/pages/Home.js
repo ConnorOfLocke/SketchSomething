@@ -15,7 +15,7 @@ function HomePage() {
           <h3 className={classes.subtitleText}>Have fun and aim for "done" over perfect!</h3>
         </section>
         <SessionSettings />
-        <div>
+        <div className={classes.buttonContainer}>
           <CenteredColumn>
             <StyledButton buttonType="primary">Start Warm Up</StyledButton>
             <StyledButton buttonType="primary">Full Session!</StyledButton>

@@ -1,6 +1,6 @@
 import Countdown from "./Countdown";
-import Exercises from "./Exercises";
+import Stretches from "./Stretches";
 import Prompt from "./Prompt";
 import PromptSet from "./PromptSet";
 
-export { Countdown, Exercises, Prompt, PromptSet };
+export { Countdown, Stretches, Prompt, PromptSet };

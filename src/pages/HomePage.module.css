@@ -4,6 +4,6 @@
   margin-bottom: 2rem;
 }
 
-.buttonSpan button {
-  width: 80%;
+.buttonContainer {
+  margin-top: 1rem;
 }
