@@ -7,13 +7,7 @@ function Countdown({ onStepDone }) {
   const time = timerTexts.length * 1000;
 
   return (
-    <TimedStage
-      time={time}
-      onStepDone={onStepDone}
-      pausable
-      hideTimer
-      timerText={timerTexts}
-    ></TimedStage>
+    <TimedStage time={time} onStepDone={onStepDone} hideTimer timerText={timerTexts}></TimedStage>
   );
 }
 

@@ -1,12 +1,11 @@
-.settings {
-  display: flex;
-  flex-direction: column;
+.settings span {
+  width: 2rem;
 }
 
-.settings > span {
-  margin: 1rem 0 0 0;
+.settings span.buttonSpan {
+  margin-top: 1.5rem;
 }
 
-.settings > span button-span {
-  flex-direction: row;
+.settings span.buttonSpan button {
+  width: 80%;
 }

@@ -1,0 +1,16 @@
+.iconWrapper {
+  margin: auto 0;
+  display: block;
+}
+
+.iconWrapper span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.iconBackground {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useVisualTimer from "../../hooks/useVisualTimer";
-import StyledButton from "../forms/StyledButton";
-import StyledProgress from "../forms/StyledProgress";
+import { StyledProgress } from "../utils/progress";
+import { StyledButton } from "../utils/button";
 
 function TimedStage({
   time,

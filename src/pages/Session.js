@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import Countdown from "../components/stages/timed-stages/Countdown";
-import Exercises from "../components/stages/timed-stages/Exercises";
-import PromptSet from "../components/stages/timed-stages/PromptSet";
 import { useNavigate } from "react-router";
-import Complete from "../components/stages/Complete";
 import { SUBJECTS } from "../data/settings";
-import BorderBox from "../components/BorderBox";
-import ContentBox from "../components/ContentBox";
-import StyledButton from "../components/forms/StyledButton";
+import { BorderBox, ContentBox } from "../components/utils/layouts";
+import { StyledButton } from "../components/utils/button";
+import { Countdown, Exercises, PromptSet } from "../components/stages/timed-stages";
+import { Complete } from "../components/stages";
 
 const countdownId = "countdown";
 const exerciesId = "exercises";

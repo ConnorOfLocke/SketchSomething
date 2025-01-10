@@ -1,0 +1,30 @@
+.foldableArea {
+  border-radius: 1rem;
+  border: 0.25rem solid var(--background-200);
+  background-color: var(--background-100);
+}
+
+.hidden {
+  overflow: hidden;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px !important;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+.foldableArea > button {
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  height: 3rem;
+  padding-left: 0.5rem;
+}
+
+.foldableArea h3 {
+  padding-left: 0.5rem;
+}
