@@ -1,3 +1,4 @@
+import classes from "./TimedStage.module.css";
 import { useEffect } from "react";
 import useVisualTimer from "../../hooks/useVisualTimer";
 import { StyledProgress } from "../utils/progress";
@@ -43,7 +44,7 @@ function TimedStage({
     <>
       <section>
         {!hideTimer && <StyledProgress value={time - timeCount} max={time} isPaused={pauseState} />}
-        <h1>{timerComponent}</h1>
+        <h1 className={classes.timerText}>{timerComponent}</h1>
         {children}
       </section>
       {pausable && (

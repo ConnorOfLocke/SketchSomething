@@ -1,0 +1,26 @@
+.exerciseText {
+  animation: 1s fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    color: transparent;
+  }
+  100% {
+    color: currentColor;
+  }
+}
+
+.navigationButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navigationButtons span {
+  width: 6rem;
+}
+
+.navigationButtons button {
+  height: 2.5rem;
+}

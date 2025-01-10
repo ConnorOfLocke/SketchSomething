@@ -70,11 +70,12 @@ function getSessionName(sessionStep) {
 }
 
 function getSessionStep(sessionStep, onStepDone) {
+  console.log(`Showing ${sessionStep.type}`);
   switch (sessionStep.type) {
     case countdownId:
       return <Countdown onStepDone={onStepDone} />;
     case stretchesId:
-      return <Stretches time={3000} onStepDone={onStepDone} />;
+      return <Stretches onStepDone={onStepDone} />;
     case promptSetId:
       return (
         <PromptSet
@@ -103,6 +104,7 @@ function SessionPage() {
   const [stepIndex, setStepIndex] = useState(0);
 
   function onStepDone() {
+    console.log("onStepDone");
     if (stepIndex + 1 >= steps.length) {
       navigate("/");
     } else {

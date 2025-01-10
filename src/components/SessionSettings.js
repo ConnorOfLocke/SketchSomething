@@ -46,7 +46,7 @@ function SessionSettings() {
       setQuantity: parseInt(formData.get(setQuantityID) || SET_QUANTITY[0]),
       promptsPerSet: parseInt(formData.get(promptsPerSetID) || PROMPTS_PER_SET[0]),
       subjects: formData.getAll(subjectTypeID) || [],
-      stretches: formData.get(stretchesCheckID) === "on" || false,
+      stretches: Boolean(formData.get(stretchesCheckID)) || false,
     };
 
     await dispatch(sessionSettingsActions.setSettings(parsedData));
@@ -91,6 +91,7 @@ function SessionSettings() {
               id={stretchesCheckID}
               defaultChecked={true}
               value="Include hand stretches"
+              setName={stretchesCheckID}
             />
           </div>
           <div className={classes.buttonContainer}>

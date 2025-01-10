@@ -23,6 +23,18 @@
   border: 0.2rem solid var(--background-400);
 }
 
+.primaryStyledButton:disabled {
+  color: var(--text-50);
+  background-color: var(--background-200);
+  border: 0.2rem solid var(--background-200);
+}
+
+.secondaryStyledButton:disabled {
+  color: var(--text-200);
+  background-color: transparent;
+  border: 0.2rem solid var(--background-200);
+}
+
 .primaryStyledButton:hover,
 .primaryStyledButton:focus {
   background-color: var(--primary-400);

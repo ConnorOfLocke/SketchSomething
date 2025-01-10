@@ -12,6 +12,7 @@
   padding: 1rem;
 
   width: 420px;
+  transition: height 1s;
 }
 
 .animateIn {

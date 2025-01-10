@@ -1,9 +1,58 @@
+import classes from "./Stretches.module.css";
 import TimedStage from "../TimedStage";
+import { WRIST_EXERCISES } from "../../../data/settings";
+import { useState } from "react";
+import { StyledButton } from "../../utils/button";
 
-function Stretches({ time, onStepDone }) {
+function Stretches({ onStepDone }) {
+  const [stretchIndex, setStretchIndex] = useState(0);
+
+  const exercises = WRIST_EXERCISES;
+
+  function onStretchStepDone() {
+    if (stretchIndex < exercises.length - 1) {
+      setStretchIndex((index) => index + 1);
+    } else {
+      onStepDone();
+    }
+  }
+
+  function onBackClick() {
+    if (stretchIndex > 0) {
+      setStretchIndex((index) => index - 1);
+    }
+  }
+
+  function onNextClick() {
+    if (stretchIndex < exercises.length - 1) {
+      setStretchIndex((index) => index + 1);
+    }
+  }
+
+  const currentStep = exercises[stretchIndex];
+
   return (
-    <TimedStage time={time} onStepDone={onStepDone} pausable skippable>
-      <h2>Beeeeeeeeg Stretch</h2>
+    <TimedStage
+      key={`stretch_${stretchIndex}`}
+      time={currentStep.time * 1000}
+      onStepDone={onStretchStepDone}
+      pausable
+      hideTimer
+    >
+      <h3 className={classes.exerciseText}>{currentStep.text}</h3>
+      <div className={classes.navigationButtons}>
+        <StyledButton buttonType="secondary" onClick={onBackClick} disabled={stretchIndex === 0}>
+          Back
+        </StyledButton>
+        <span />
+        <StyledButton
+          buttonType="secondary"
+          onClick={onNextClick}
+          disabled={stretchIndex === exercises.length - 1}
+        >
+          Next
+        </StyledButton>
+      </div>
     </TimedStage>
   );
 }

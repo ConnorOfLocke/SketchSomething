@@ -13,6 +13,8 @@ const sessionSettingsSlice = createSlice({
   initialState: defaultSessionSettings,
   reducers: {
     setSettings(state, action) {
+      console.log(action.payload);
+      console.log({ ...state, ...action.payload });
       return { ...state, ...action.payload };
     },
   },
