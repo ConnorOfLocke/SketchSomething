@@ -20,7 +20,9 @@ function FoldableArea({ children, defaultShown, headerText }) {
           <h3>{headerText}</h3>
         </CenteredRow>
       </button>
-      <div className={showing ? "" : classes.hidden}>{children}</div>
+      <div className={`${classes.hiddenContent} ${showing ? classes.shown : classes.hidden}`}>
+        {children}
+      </div>
     </section>
   );
 }

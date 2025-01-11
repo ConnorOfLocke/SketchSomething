@@ -4,7 +4,12 @@
   background-color: var(--background-100);
 }
 
-.hidden {
+.hiddenContent.shown {
+  transition: opacity 1s;
+  opacity: 1;
+}
+
+.hiddenContent.hidden {
   overflow: hidden;
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px);
@@ -13,6 +18,7 @@
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
+  opacity: 0;
 }
 
 .foldableArea > button {
