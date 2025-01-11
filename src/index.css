@@ -1,4 +1,8 @@
 :root/*[data-theme="light"]*/ {
+  --spiggleedoo-main: #f578e0;
+  --spiggleedoo-secondary: #f4f14e;
+  --spiggleedoo-accent: #6ee376;
+
   --text-50: #efedf8;
   --text-100: #dfdbf0;
   --text-200: #c0b6e2;
@@ -61,6 +65,10 @@
 }
 /*
 :root[data-theme="dark"] {
+  --spiggleedoo-main: #f578e0;
+  --spiggleedoo-secondary: #F4F14E;
+  --spiggleedoo-accent: #6EE376;
+  
   --text-50: #0a0712;
   --text-100: #130f24;
   --text-200: #271d49;

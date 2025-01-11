@@ -1,3 +1,4 @@
 import StyledButton from "./StyledButton";
+import LinkButton from "./LinkButton";
 
-export { StyledButton };
+export { StyledButton, LinkButton };

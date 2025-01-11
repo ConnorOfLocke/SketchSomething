@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./FoldableArea.module.css";
-import { CenteredRow } from "../utils/layouts";
-import { IconWrapper } from "../utils/icons";
+import { CenteredRow } from ".";
+import { IconWrapper } from "../icons";
 
 function FoldableArea({ children, defaultShown, headerText }) {
   const [showing, setShowing] = useState(defaultShown);

@@ -11,7 +11,7 @@ import {
   WARM_UP_SESSION,
   FULL_SESSION,
 } from "../data/settings";
-import FoldableArea from "./forms/FoldableArea";
+import FoldableArea from "./utils/layouts/FoldableArea";
 import { CheckboxSet, StyledCheckbox } from "./utils/checkboxs";
 import StyledButton from "./utils/button/StyledButton";
 import { CenteredColumn } from "./utils/layouts";

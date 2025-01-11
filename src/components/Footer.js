@@ -1,18 +1,25 @@
+import { useState } from "react";
+import AboutModal from "../pages/About";
 import classes from "./Footer.module.css";
 
 function Footer() {
+  const [aboutModalOpen, setAboutModalOpen] = useState();
+
   function onAboutClick() {
-    console.log("Aboot");
+    setAboutModalOpen(true);
   }
 
   return (
-    <footer className={classes.footer}>
-      <header>
-        <button onClick={onAboutClick}>
-          <h3>About</h3>
-        </button>
-      </header>
-    </footer>
+    <>
+      <AboutModal open={aboutModalOpen} onClose={() => setAboutModalOpen(false)} />
+      <footer className={classes.footer}>
+        <header>
+          <button onClick={onAboutClick}>
+            <h3>About</h3>
+          </button>
+        </header>
+      </footer>
+    </>
   );
 }
 
