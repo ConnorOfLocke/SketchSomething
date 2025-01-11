@@ -59,7 +59,7 @@ function getSessionName(sessionStep) {
     case countdownId:
       return "Get ready!";
     case stretchesId:
-      return "Stretch";
+      return "Stretch it out!";
     case promptSetId:
       return `Set ${1 + sessionStep.promptSetIndex} of ${sessionStep.setQuantity}`;
     case completeId:
