@@ -17,7 +17,7 @@ function FoldableArea({ children, defaultShown, headerText }) {
       <button type="button" onClick={onClickUnfold}>
         <IconWrapper iconID={showing ? "arrow-down" : "arrow-right"} size={"1.5rem"} />
         <CenteredRow>
-          <h3>{headerText}</h3>
+          <h3 className={classes.foldableAreaTitle}>{headerText}</h3>
         </CenteredRow>
       </button>
       <div className={`${classes.hiddenContent} ${showing ? classes.shown : classes.hidden}`}>

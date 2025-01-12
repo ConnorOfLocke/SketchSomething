@@ -4,6 +4,10 @@
   background-color: var(--background-100);
 }
 
+.foldableAreaTitle {
+  padding-left: 0.5rem;
+}
+
 .hiddenContent.shown {
   transition: opacity 1s;
   opacity: 1;
@@ -28,9 +32,5 @@
   cursor: pointer;
   display: flex;
   height: 3rem;
-  padding-left: 0.5rem;
-}
-
-.foldableArea h3 {
   padding-left: 0.5rem;
 }

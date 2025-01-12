@@ -1,1 +1,8 @@
-
+main > img {
+  position: absolute;
+  z-index: -1;
+  left: 8rem;
+  bottom: 4rem;
+  width: 200px;
+  opacity: 0.5;
+}
