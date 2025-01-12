@@ -1,0 +1,41 @@
+.exerciseContainer {
+  border: 0.25rem solid var(--secondary-400);
+  background-color: var(--secondary-400);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 8rem;
+}
+
+.exerciseText {
+  color: var(--text-50);
+  text-align: left;
+  animation: 1s fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    color: transparent;
+  }
+  100% {
+    color: var(--text-50);
+  }
+}
+
+.navigationButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navigationButtons span {
+  width: 6rem;
+}
+
+.navigationButtons button {
+  height: 2.5rem;
+}

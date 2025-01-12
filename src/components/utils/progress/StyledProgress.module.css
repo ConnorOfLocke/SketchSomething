@@ -1,0 +1,60 @@
+.progressBar {
+  width: 12rem;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /*background*/
+  background-color: var(--background-100);
+  /*foreground*/
+  accent-color: var(--background-500);
+  border-radius: 2rem;
+}
+
+/*background*/
+.progressBar::-webkit-progress-bar {
+  background-color: var(--background-100);
+  border-radius: 2rem;
+}
+
+/*foreground*/
+.progressBar::-webkit-progress-value,
+.progressBar::-moz-progress-bar {
+  background-color: var(--background-500);
+  border-radius: 2rem;
+}
+
+/*anims for flashing*/
+.progressBar.paused {
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-name: slow-flash-accent;
+  animation-direction: alternate;
+}
+
+.progressBar.paused::-webkit-progress-value,
+.progressBar.paused::-moz-progress-bar {
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-name: slow-flash-background;
+  animation-direction: alternate;
+}
+
+@keyframes slow-flash-background {
+  0% {
+    background-color: var(--background-500);
+  }
+  100% {
+    background-color: var(--background-200);
+  }
+}
+
+@keyframes slow-flash-accent {
+  0% {
+    accent-color: var(--background-500);
+  }
+  100% {
+    accent-color: transparent;
+  }
+}
