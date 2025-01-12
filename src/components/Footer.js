@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AboutModal from "../pages/About";
+import AboutModal from "./modals/About";
 import classes from "./Footer.module.css";
 
 function Footer() {
@@ -11,7 +11,7 @@ function Footer() {
 
   return (
     <>
-      <AboutModal open={aboutModalOpen} onClose={() => setAboutModalOpen(false)} />
+      <AboutModal open={aboutModalOpen} onConfirm={() => setAboutModalOpen(false)} />
       <footer className={classes.footer}>
         <header>
           <button onClick={onAboutClick}>

@@ -1,12 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useVisualTimer = (time, onTimeout, timerInterval = 30) => {
   const [timeCount, setTimeCount] = useState(0);
   const [pauseState, setPauseState] = useState(false);
-
-  const togglePauseState = useCallback(() => {
-    setPauseState((prevState) => !prevState);
-  }, [setPauseState]);
 
   useEffect(() => {
     if (timeCount >= time) onTimeout();
@@ -38,7 +34,7 @@ const useVisualTimer = (time, onTimeout, timerInterval = 30) => {
     };
   }, [time, onTimeout, timerInterval, pauseState]);
 
-  return { timeCount, pauseState, togglePauseState };
+  return { timeCount, pauseState, setPauseState };
 };
 
 export default useVisualTimer;

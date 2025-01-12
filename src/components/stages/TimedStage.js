@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import useVisualTimer from "../../hooks/useVisualTimer";
 import { StyledProgress } from "../utils/progress";
 import { StyledButton } from "../utils/button";
+import { useSelector } from "react-redux";
 
 function TimedStage({
   time,
@@ -14,10 +15,23 @@ function TimedStage({
   timerText,
   onPauseCallback = null,
 }) {
-  const { timeCount, pauseState, togglePauseState } = useVisualTimer(time, onStepDone);
+  const { modalOpen } = useSelector((state) => state.uiState);
+  const { timeCount, pauseState, setPauseState } = useVisualTimer(time, onStepDone);
+
+  useEffect(
+    () => {
+      if (!pauseState && modalOpen) {
+        setPauseState(true);
+      } else if (pauseState && !modalOpen) {
+        setPauseState(false);
+      }
+    },
+    // eslint-disable-next-line
+    [modalOpen]
+  );
 
   function onPauseClick() {
-    togglePauseState();
+    setPauseState((prevPauseState) => !prevPauseState);
   }
 
   function onSkipClick() {

@@ -1,11 +1,9 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
 import { SUBJECTS } from "../data/settings";
-import { BorderBox, ContentBox } from "../components/utils/layouts";
-import { StyledButton } from "../components/utils/button";
 import { Countdown, Stretches, PromptSet } from "../components/stages/timed-stages";
 import { Complete } from "../components/stages";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { BorderBox, ContentBox } from "./utils/layouts";
 
 const countdownId = "countdown";
 const stretchesId = "stretches";
@@ -95,44 +93,35 @@ function getSessionStep(sessionStep, onStepDone) {
   }
 }
 
-function SessionPage() {
-  const navigate = useNavigate();
+function Session({ onSessionDone }) {
   const sessionSettings = useSelector((state) => state.sessionSettings);
-  const steps = createSession(sessionSettings);
-
   const [stepIndex, setStepIndex] = useState(0);
+
+  const [steps, setSteps] = useState();
+
+  useEffect(() => {
+    const steps = createSession(sessionSettings);
+    setSteps(steps);
+  }, [sessionSettings]);
 
   function onStepDone() {
     if (stepIndex + 1 >= steps.length) {
-      navigate("/");
+      onSessionDone();
     } else {
       setStepIndex((prevStepIndex) => prevStepIndex + 1);
     }
   }
 
-  function onHomeButton() {
-    navigate("/");
-  }
-
-  const currentStep = getSessionStep(steps[stepIndex], onStepDone);
-
   return (
-    <>
-      <ContentBox key={stepIndex} animate>
-        <BorderBox borderType={"background"}>
-          <header>
-            <h1>{getSessionName(steps[stepIndex])}</h1>
-          </header>
-          {currentStep}
-        </BorderBox>
-      </ContentBox>
-      <ContentBox>
-        <StyledButton buttonType="secondary" onClick={onHomeButton}>
-          Reset
-        </StyledButton>
-      </ContentBox>
-    </>
+    <ContentBox key={stepIndex} animate>
+      <BorderBox borderType={"background"}>
+        <header>
+          <h1>{steps && getSessionName(steps[stepIndex])}</h1>
+        </header>
+        {steps ? getSessionStep(steps[stepIndex], onStepDone) : null}
+      </BorderBox>
+    </ContentBox>
   );
 }
 
-export default SessionPage;
+export default Session;
