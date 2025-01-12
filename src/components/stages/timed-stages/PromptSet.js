@@ -14,7 +14,6 @@ function PromptSet({ time, promptsPerSet, subject, onStepDone }) {
   function onPromptDone() {
     if (promptCount + 1 >= promptsPerSet) {
       onStepDone();
-      setPromptCount(0);
     } else {
       setPromptCount((prev) => prev + 1);
       refreshPromptIndex();

@@ -12,6 +12,7 @@ function AboutModal({ open, onConfirm }) {
       <h3>
         Connor "<span>Spiggleedoo</span>" Locke-Warburton
       </h3>
+      <p>This site is still work in progress so lemme know if anything breaks for you</p>
       <h3>Come say hi!</h3>
       <nav>
         {SOCIALS.map((social) => (
@@ -22,7 +23,7 @@ function AboutModal({ open, onConfirm }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconWrapper iconID={social.id} size={"3rem"} />
+            <IconWrapper iconID={social.id} size={"2.5rem"} />
           </LinkButton>
         ))}
       </nav>

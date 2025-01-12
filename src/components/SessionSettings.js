@@ -96,7 +96,7 @@ function SessionSettings() {
           </div>
           <div className={classes.buttonContainer}>
             <StyledButton buttonType="primary" type="submit">
-              Start Custom Session
+              Start
             </StyledButton>
           </div>
         </FoldableArea>
@@ -104,10 +104,10 @@ function SessionSettings() {
       <div className={classes.buttonContainer}>
         <CenteredColumn>
           <StyledButton buttonType="primary" onClick={onWarmupClicked}>
-            Start Warm Up
+            Warm Up
           </StyledButton>
           <StyledButton buttonType="primary" onClick={onFullSessionClicked}>
-            Start Full Session
+            Full Session
           </StyledButton>
         </CenteredColumn>
       </div>

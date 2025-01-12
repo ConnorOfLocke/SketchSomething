@@ -20,6 +20,10 @@
   border: 1rem solid var(--accent-400);
 }
 
+.borderBox.none {
+  border: 0;
+}
+
 .borderBox > header {
   position: relative;
   top: -4rem;
