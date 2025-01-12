@@ -1,0 +1,41 @@
+.complete::backdrop {
+  background-image: linear-gradient(
+    -45deg,
+    var(--primary-500),
+    var(--secondary-500),
+    var(--accent-500),
+    var(--background-500)
+  );
+  opacity: 0.75;
+}
+
+.completeBorder {
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    45deg,
+    var(--primary-500),
+    var(--secondary-500),
+    var(--accent-500),
+    var(--background-500)
+  );
+}
+
+.innerBorder {
+  border-radius: 1rem 1rem;
+  padding: 1rem 2rem;
+  background-color: var(--background-50);
+}
+
+.complete .borderBox {
+  padding-bottom: 2rem;
+}
+
+.complete ul {
+  padding: 0 1rem;
+  font-family: "Lexend", serif;
+}
+
+.complete li {
+  font-size: large;
+}

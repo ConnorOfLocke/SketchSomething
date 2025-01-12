@@ -1,14 +1,13 @@
 import { SUBJECTS } from "../data/settings";
-import { Countdown, Stretches, PromptSet } from "../components/stages/timed-stages";
-import { Complete } from "../components/stages";
+import { Stretches, PromptSet, Countdown } from "../components/stages/timed-stages";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BorderBox, ContentBox } from "./utils/layouts";
+import CompleteModal from "./modals/Complete";
 
 const countdownId = "countdown";
 const stretchesId = "stretches";
 const promptSetId = "promptSet";
-const completeId = "complete";
 
 function getFullSubject(subjectName) {
   return SUBJECTS.find((subject) => subject.name === subjectName);
@@ -44,11 +43,6 @@ function createSession(sessionSettings) {
     });
   }
 
-  //Outro
-  sessionSteps.push({
-    type: completeId,
-  });
-
   return sessionSteps;
 }
 
@@ -60,8 +54,6 @@ function getSessionName(sessionStep) {
       return "Stretch it out!";
     case promptSetId:
       return `Set ${1 + sessionStep.promptSetIndex} of ${sessionStep.setQuantity}`;
-    case completeId:
-      return `Ya did it!!`;
     default:
       return "Unrecognised Step type";
   }
@@ -86,8 +78,6 @@ function getSessionStep(sessionStep, onStepDone) {
           onStepDone={onStepDone}
         />
       );
-    case completeId:
-      return <Complete onStepDone={onStepDone} />;
     default:
       return <p>Unrecognised Step type</p>;
   }
@@ -95,9 +85,9 @@ function getSessionStep(sessionStep, onStepDone) {
 
 function Session({ onSessionDone }) {
   const sessionSettings = useSelector((state) => state.sessionSettings);
+  const [completeModalOpen, setCompleteModalOpen] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
-
-  const [steps, setSteps] = useState();
+  const [steps, setSteps] = useState(null);
 
   useEffect(() => {
     const steps = createSession(sessionSettings);
@@ -106,21 +96,29 @@ function Session({ onSessionDone }) {
 
   function onStepDone() {
     if (stepIndex + 1 >= steps.length) {
-      onSessionDone();
+      setCompleteModalOpen(true);
     } else {
       setStepIndex((prevStepIndex) => prevStepIndex + 1);
     }
   }
 
+  function onCompleteModalConfirm() {
+    setCompleteModalOpen(false);
+    onSessionDone();
+  }
+
   return (
-    <ContentBox key={stepIndex} animate>
-      <BorderBox borderType={"background"}>
-        <header>
-          <h1>{steps && getSessionName(steps[stepIndex])}</h1>
-        </header>
-        {steps ? getSessionStep(steps[stepIndex], onStepDone) : null}
-      </BorderBox>
-    </ContentBox>
+    <>
+      <ContentBox key={stepIndex} animate>
+        <BorderBox borderType={"background"}>
+          <header>
+            <h1>{steps && getSessionName(steps[stepIndex])}</h1>
+          </header>
+          {steps ? getSessionStep(steps[stepIndex], onStepDone) : null}
+        </BorderBox>
+      </ContentBox>
+      <CompleteModal steps={steps} open={completeModalOpen} onConfirm={onCompleteModalConfirm} />
+    </>
   );
 }
 

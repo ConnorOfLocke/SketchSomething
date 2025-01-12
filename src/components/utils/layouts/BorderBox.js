@@ -13,6 +13,12 @@ function BorderBox({ borderType, children }) {
     case "accent":
       borderStyle = classes.accent;
       break;
+    case "special":
+      borderStyle = classes.special;
+      break;
+    case "none":
+      borderStyle = classes.none;
+      break;
     case "background":
     default:
       borderStyle = classes.background;
