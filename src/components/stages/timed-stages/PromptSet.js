@@ -5,8 +5,6 @@ function PromptSet({ time, promptsPerSet, subject, onStepDone }) {
   const [promptIndex, setPromptIndex] = useState(null);
   const [promptCount, setPromptCount] = useState(0);
 
-  console.log(`${promptIndex} - ${promptCount}`);
-
   //get the full subject with all the prompts
   const refreshPromptIndex = useCallback(() => {
     const newIndex = Math.floor(Math.random() * subject.prompts.length);
