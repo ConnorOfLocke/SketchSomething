@@ -1,12 +1,21 @@
-import { PageLayout } from "../components/PageLayout";
-import PromptSettings from "../components/PromptSettings";
+import classes from "./HomePage.module.css";
+import SessionSettings from "../components/SessionSettings";
+import { BorderBox, ContentBox } from "../components/utils/layouts";
 
 function HomePage() {
   return (
-    <PageLayout>
-      <h1>Home Page</h1>
-      <PromptSettings />
-    </PageLayout>
+    <ContentBox animate>
+      <BorderBox borderType={"background"}>
+        <header>
+          <h1>Sketch Something!</h1>
+        </header>
+        <section className={classes.subtitleText}>
+          <h3>Sketch the prompts as fast as you can, with whatever you have</h3>
+          <h3 className={classes.subtitleText}>Have fun and aim for "done" over perfect!</h3>
+        </section>
+        <SessionSettings />
+      </BorderBox>
+    </ContentBox>
   );
 }
 

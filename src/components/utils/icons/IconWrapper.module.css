@@ -1,0 +1,20 @@
+.iconWrapper {
+  margin: auto 0;
+  display: block;
+}
+
+.icon.bluesky {
+  color: #1185fe;
+}
+
+.icon.email {
+  color: #101010;
+}
+
+.icon.github {
+  color: #171515;
+}
+
+.icon.linkedIn {
+  color: #0a66c1;
+}
