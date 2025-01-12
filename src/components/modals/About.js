@@ -22,7 +22,7 @@ function AboutModal({ open, onConfirm }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconWrapper iconID={social.id} size={"3rem"} />
+            <IconWrapper iconID={social.id} size={"2.5rem"} />
           </LinkButton>
         ))}
       </nav>

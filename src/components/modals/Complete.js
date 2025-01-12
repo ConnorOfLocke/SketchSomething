@@ -13,7 +13,9 @@ function CompleteModal({ steps, open, onConfirm }) {
               steps.map((step) => {
                 if (step.type === "promptSet") {
                   return (
-                    <li key={step.subjectName}>{`${step.promptsPerSet} ${step.subjectName}`}</li>
+                    <li
+                      key={`${step.subjectName}_${step.promptSetIndex}`}
+                    >{`${step.promptsPerSet} ${step.subjectName}`}</li>
                   );
                 }
                 return null;
