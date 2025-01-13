@@ -37,11 +37,17 @@ function IconWrapper({ iconID, size }) {
       break;
   }
 
+  //On safari svg's dont take sizes in rem
+  let adjustedSize = size;
+  if (size.includes("rem")){
+    adjustedSize = parseFloat(size) * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  }
+
   return (
     <div className={classes.iconWrapper}>
       <CenteredColumn className={classes.iconBackground}>
         <CenteredRow>
-          {iconPair && <iconPair.icon className={iconClassName} size={size} />}
+          {iconPair && <iconPair.icon className={iconClassName} size={adjustedSize} />}
         </CenteredRow>
       </CenteredColumn>
     </div>

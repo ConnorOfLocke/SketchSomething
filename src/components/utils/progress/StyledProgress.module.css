@@ -19,7 +19,10 @@
 }
 
 /*foreground*/
-.progressBar::-webkit-progress-value,
+.progressBar[value]::-webkit-progress-value {
+  background-color: var(--background-500);
+  border-radius: 2rem;
+}
 .progressBar::-moz-progress-bar {
   background-color: var(--background-500);
   border-radius: 2rem;
@@ -33,7 +36,14 @@
   animation-direction: alternate;
 }
 
-.progressBar.paused::-webkit-progress-value,
+/* animating the foreground */
+.progressBar.paused::-webkit-progress-value {
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-name: slow-flash-background;
+  animation-direction: alternate;
+}
+
 .progressBar.paused::-moz-progress-bar {
   animation-iteration-count: infinite;
   animation-duration: 1s;
