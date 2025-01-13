@@ -36,13 +36,16 @@ function Stretches({ onStepDone }) {
       key={`stretch_${stretchIndex}`}
       time={currentStep.time * 1000}
       onStepDone={onStretchStepDone}
-      pausable
     >
       <div className={classes.exerciseContainer}>
         <h3 className={classes.exerciseText}>{currentStep.text}</h3>
       </div>
       <div className={classes.navigationButtons}>
-        <StyledButton buttonType="secondary" onClick={onBackClick} disabled={stretchIndex === 0}>
+        <StyledButton
+          buttonType="secondary"
+          onClick={onBackClick}
+          disabled={stretchIndex === 0}
+        >
           Back
         </StyledButton>
         <span />
