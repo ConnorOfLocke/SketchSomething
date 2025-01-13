@@ -1,4 +1,4 @@
-# Sketch Something
+# Sketch a Thing
 
 Website for when you just don't know what to draw.
 
