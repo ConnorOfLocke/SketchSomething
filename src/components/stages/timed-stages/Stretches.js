@@ -1,6 +1,6 @@
 import classes from "./Stretches.module.css";
 import TimedStage from "../TimedStage";
-import { WRIST_EXERCISES } from "../../../data/settings";
+import { WRIST_EXERCISES } from "../../../data/exercises";
 import { useState } from "react";
 import { StyledButton } from "../../utils/button";
 

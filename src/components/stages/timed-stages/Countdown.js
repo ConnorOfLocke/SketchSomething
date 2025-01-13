@@ -1,6 +1,6 @@
 import classes from "./Countdown.module.css";
 import TimedStage from "../TimedStage";
-import { COUNTDOWN_TEXTS } from "../../../data/settings";
+import { COUNTDOWN_TEXTS } from "../../../data/countdown-text";
 
 function Countdown({ onStepDone }) {
   let timerTexts =

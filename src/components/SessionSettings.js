@@ -7,10 +7,10 @@ import {
   SET_QUANTITY,
   SET_TIME,
   PROMPTS_PER_SET,
-  SUBJECTS,
   WARM_UP_SESSION,
   FULL_SESSION,
 } from "../data/settings";
+import { SUBJECTS } from "../data/subjects";
 import FoldableArea from "./utils/layouts/FoldableArea";
 import { CheckboxSet, StyledCheckbox } from "./utils/checkboxs";
 import StyledButton from "./utils/button/StyledButton";
@@ -44,7 +44,9 @@ function SessionSettings() {
     const parsedData = {
       setTime: parseInt(formData.get(setTimeID) || SET_TIME[0]),
       setQuantity: parseInt(formData.get(setQuantityID) || SET_QUANTITY[0]),
-      promptsPerSet: parseInt(formData.get(promptsPerSetID) || PROMPTS_PER_SET[0]),
+      promptsPerSet: parseInt(
+        formData.get(promptsPerSetID) || PROMPTS_PER_SET[0]
+      ),
       subjects: formData.getAll(subjectTypeID) || [],
       stretches: Boolean(formData.get(stretchesCheckID)) || false,
     };
