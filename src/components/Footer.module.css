@@ -5,8 +5,19 @@ footer {
   height: 3rem;
 }
 
-footer header {
-  width: 12rem;
+footer .todo {
+  width: 8rem;
+  position: absolute;
+  margin-right: 1rem;
+  right: 12rem;
+  padding: 0.5rem;
+  border-radius: 2rem 2rem 0 0;
+  background-color: var(--secondary-50);
+  box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
+}
+
+footer .about {
+  width: 10rem;
   position: absolute;
   margin-right: 1rem;
   right: 0;
@@ -16,29 +27,46 @@ footer header {
   box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
 }
 
-footer button {
+/* button */
+footer .about button,
+footer .todo button {
   margin: 0;
   width: 100%;
   border-radius: 1.5rem 1.5rem 0 0;
-  border: 0.25rem solid var(--secondary-200);
   padding: 0.25rem 0.5rem;
   cursor: pointer;
-  background-color: var(--secondary-50);
-
   transition: background-color ease-in 100ms color ease-in 100ms;
 }
 
-footer button h3 {
+footer .about button {
+  border: 0.25rem solid var(--secondary-200);
+  background-color: var(--secondary-50);
+}
+
+footer .todo button {
+  border: 0.25rem solid var(--accent-200);
+  background-color: var(--accent-50);
+}
+
+/* button text */
+footer .about button h3,
+footer .todo button h3 {
   color: var(--text-800);
   transition: color ease-in 100ms;
   margin-top: 0.25rem;
 }
 
-footer button:hover h3 {
+footer .about button:hover h3,
+footer .todo button:hover h3 {
   color: var(--text-50);
 }
 
-footer button:hover {
+footer .about button:hover {
   background-color: var(--secondary-400);
+  color: var(--text-50);
+}
+
+footer .todo button:hover {
+  background-color: var(--accent-400);
   color: var(--text-50);
 }

@@ -201,9 +201,19 @@ export const SUBJECTS = [
 
 export const COUNTDOWN_TEXTS = [
   ["3", "2", "1", "Let's Jam!"],
-  ["Are you ready Steve?", "Mick? Andy?", "Alright fellahs!", "Lets GOOOOOOO!!"],
+  [
+    "Are you ready Steve?",
+    "Mick? Andy?",
+    "Alright fellahs...",
+    "Lets GOOOOOOO!!",
+  ],
   ["It's time-", "to DU-DU-DU", "DUEL!"],
-  ["This is an art attack~", "This is an art attack!", "THIS IS...", "ART ATTACK!"],
+  [
+    "This is an art attack~",
+    "THIS is an art attack!",
+    "THIS IS...",
+    "ART ATTACK!",
+  ],
   ["One Fish", "Two Fish", "Red Fish", "YOU FISH"],
   [
     "Slam it to the left!",
@@ -211,11 +221,24 @@ export const COUNTDOWN_TEXTS = [
     "Chica's to the front!",
     "Hai, si, Ja! DRAW RIGHT!",
   ],
-  ["H, O, T, T", "O, G, O", "You can draw me..", "HOT TO GO!"],
+  ["H, O, T, T, O, G, O", "You can draw me..", "HOT TO GO!"],
+  ["Snake?", "SNAKE?", "SNAAAAAAAAAAAKE!!"],
+  ["It was a One-Eyed", "One-Horned, Flying", "Purple People Eater!"],
+  [
+    "Country roooads...",
+    "Draw me hoooome...",
+    "to the plaaaace...",
+    "I beloooong...",
+    "WEST VIRGINIA",
+  ],
+  ["One", "and a two", "and a three", "BA DUM DUM DUM"],
 ];
 
 export const WRIST_EXERCISES = [
-  { time: 12.0, text: "Straighten your arms in front of you with your palms pointing forward" },
+  {
+    time: 12.0,
+    text: "Straighten your arms in front of you with your palms pointing forward",
+  },
   {
     time: 12.0,
     text: "Hold your LEFT fingers with your RIGHT hand.",
@@ -224,13 +247,19 @@ export const WRIST_EXERCISES = [
     time: 12.0,
     text: "Gently bend your LEFT wrist back until you feel a stretch in the forearm.",
   },
-  { time: 30.0, text: "Hold this position. If this hurts apply less pressure." },
+  {
+    time: 30.0,
+    text: "Hold this position. If this hurts apply less pressure.",
+  },
   { time: 3.0, text: "Gently relax" },
   {
     time: 12.0,
     text: "With your palms pointing up, hold your LEFT fingers with your RIGHT hand.",
   },
-  { time: 12.0, text: "Gently bend your LEFT wrist back until you feel a stretch in the forearm." },
+  {
+    time: 12.0,
+    text: "Gently bend your LEFT wrist back until you feel a stretch in the forearm.",
+  },
   { time: 30.0, text: "Hold this position." },
   { time: 6.0, text: "Gently relax" },
   {
