@@ -14,7 +14,7 @@ https://sketch-something-staging.pages.dev/
 
 ### Release
 
-https://sketch-something.com/
+https://sketchathing.com/
 
 Bluesky: https://bsky.app/profile/spiggleedoo.bsky.social
 LinkedIn: https://www.linkedin.com/in/connor-locke-warburton-a8287890/
