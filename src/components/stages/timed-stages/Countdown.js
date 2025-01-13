@@ -27,7 +27,6 @@ function Countdown({ onStepDone }) {
       onStepDone={onStepDone}
       hideTimer
       timerText={timerTexts}
-      pausable
     ></TimedStage>
   );
 }
