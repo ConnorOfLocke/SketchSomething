@@ -16,7 +16,10 @@ function TimedStage({
   onPauseCallback = null,
 }) {
   const { modalOpen } = useSelector((state) => state.uiState);
-  const { timeCount, pauseState, setPauseState } = useVisualTimer(time, onStepDone);
+  const { timeCount, pauseState, setPauseState } = useVisualTimer(
+    time,
+    onStepDone
+  );
 
   useEffect(
     () => {
@@ -56,13 +59,17 @@ function TimedStage({
 
   return (
     <>
-      <section>
-        {!hideTimer && <StyledProgress value={time - timeCount} max={time} isPaused={pauseState} />}
-        <h1 className={classes.timerText}>{timerComponent}</h1>
+      <section className={classes.timedStage}>
+        {!hideTimer && (
+          <StyledProgress value={timeCount} max={time} isPaused={pauseState} />
+        )}
+        {timerComponent}
         {children}
       </section>
       {pausable && (
-        <StyledButton onClick={onPauseClick}>{pauseState ? "Unpause" : "Pause"} </StyledButton>
+        <StyledButton onClick={onPauseClick}>
+          {pauseState ? "Unpause" : "Pause"}
+        </StyledButton>
       )}
       {skippable && <StyledButton onClick={onSkipClick}>Skip</StyledButton>}
     </>

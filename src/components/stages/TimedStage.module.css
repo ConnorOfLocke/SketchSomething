@@ -1,12 +1,3 @@
-.timerText {
-  animation: 1s fade-in;
-}
-
-@keyframes fade-in {
-  0% {
-    color: transparent;
-  }
-  100% {
-    color: currentColor;
-  }
+.timedStage {
+  min-height: 8rem;
 }
