@@ -16,20 +16,19 @@
 }
 
 .animateIn {
-  animation-duration: 0.4s;
-  animation-timing-function: cubic-bezier(0.42, 0, 1, 1);
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in;
   animation-name: slide-in;
 }
 
 @keyframes slide-in {
-  from {
-    scale: 1.1;
-    translate: 0 -50vh;
-    rotate: -5deg;
+  0% {
+    translate: 0 -60vh;
   }
-  to {
-    scale: 1;
+  90% {
+    translate: 0 1vh;
+  }
+  100% {
     translate: 0 0;
-    rotate: 0deg;
   }
 }
