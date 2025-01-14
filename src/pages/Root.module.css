@@ -1,3 +1,8 @@
+main {
+  height: 100vh;
+  overflow-y: auto;
+}
+
 main > img {
   position: absolute;
   z-index: -1;

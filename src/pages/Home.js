@@ -10,9 +10,9 @@ function HomePage() {
           <h1>Sketch a thing!</h1>
         </header>
         <section className={classes.subtitleText}>
-          <h3>Sketch the prompts as fast as you can, with whatever you have</h3>
+          <h3>Sketch the prompts as fast as you can!</h3>
           <h3 className={classes.subtitleText}>
-            Have fun and aim for "done" over perfect!
+            Have fun and aim for "Done" over perfect.
           </h3>
         </section>
         <SessionSettings />

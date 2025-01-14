@@ -1,9 +1,13 @@
-import { SUBJECTS } from "../data/settings";
-import { Stretches, PromptSet, Countdown } from "../components/stages/timed-stages";
+import {
+  Stretches,
+  PromptSet,
+  Countdown,
+} from "../components/stages/timed-stages";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BorderBox, ContentBox } from "./utils/layouts";
 import CompleteModal from "./modals/Complete";
+import { SUBJECTS } from "../data/subjects";
 
 const countdownId = "countdown";
 const stretchesId = "stretches";
@@ -26,7 +30,8 @@ function createSession(sessionSettings) {
   for (let i = 0; i < sessionSettings.setQuantity; i++) {
     let promptSubjectName = "";
     if (sessionSettings.subjects.length > 0) {
-      promptSubjectName = sessionSettings.subjects[i % sessionSettings.subjects.length];
+      promptSubjectName =
+        sessionSettings.subjects[i % sessionSettings.subjects.length];
     } else {
       const randomIndex = Math.floor(Math.random() * SUBJECTS.length);
       promptSubjectName = SUBJECTS[randomIndex].name;
@@ -53,7 +58,9 @@ function getSessionName(sessionStep) {
     case stretchesId:
       return "Stretch it out!";
     case promptSetId:
-      return `Set ${1 + sessionStep.promptSetIndex} of ${sessionStep.setQuantity}`;
+      return `Set ${1 + sessionStep.promptSetIndex} of ${
+        sessionStep.setQuantity
+      }`;
     default:
       return "Unrecognised Step type";
   }
@@ -117,7 +124,11 @@ function Session({ onSessionDone }) {
           {steps ? getSessionStep(steps[stepIndex], onStepDone) : null}
         </BorderBox>
       </ContentBox>
-      <CompleteModal steps={steps} open={completeModalOpen} onConfirm={onCompleteModalConfirm} />
+      <CompleteModal
+        steps={steps}
+        open={completeModalOpen}
+        onConfirm={onCompleteModalConfirm}
+      />
     </>
   );
 }

@@ -1,0 +1,17 @@
+.todoModal {
+}
+
+.todoModal h1 {
+  padding: 0 1rem;
+}
+
+.todoModal ul {
+  border-radius: 2rem;
+  border: 0.25rem solid var(--background-500);
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.todoModal li {
+  text-align: left;
+}
