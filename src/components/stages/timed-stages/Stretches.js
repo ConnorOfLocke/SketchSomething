@@ -1,6 +1,6 @@
 import classes from "./Stretches.module.css";
 import TimedStage from "../TimedStage";
-import { WRIST_EXERCISES } from "../../../data/settings";
+import { WRIST_EXERCISES } from "../../../data/exercises";
 import { useState } from "react";
 import { StyledButton } from "../../utils/button";
 
@@ -35,7 +35,7 @@ function Stretches({ onStepDone }) {
     <TimedStage
       key={`stretch_${stretchIndex}`}
       time={currentStep.time * 1000}
-      onStepDone={onStretchStepDone}
+      onTimeDone={onStretchStepDone}
     >
       <div className={classes.exerciseContainer}>
         <h3 className={classes.exerciseText}>{currentStep.text}</h3>

@@ -38,13 +38,16 @@
   box-shadow: none;
 }
 
-.primaryStyledButton:hover,
-.primaryStyledButton:focus {
+.primaryStyledButton:focus,
+.secondaryStyledButton:focus {
+  box-shadow: 4px 4px 4px 4px var(--background-800);
+}
+
+.primaryStyledButton:hover {
   background-color: var(--primary-400);
   color: var(--text-800);
 }
 
-.secondaryStyledButton:hover,
-.secondaryStyledButton:focus {
+.secondaryStyledButton:hover {
   background-color: var(--primary-400);
 }

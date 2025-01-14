@@ -4,34 +4,31 @@
 }
 
 .innerContent {
-  margin-top: 8vh;
-
   background: var(--background-50);
   box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
   border-radius: 2.5rem 2.5rem;
   padding: 1rem;
+  margin: 6vh 1rem 8vh 1rem;
 
   width: 420px;
-  margin-bottom: 4rem;
 
   transition: height 1s;
 }
 
 .animateIn {
-  animation-duration: 0.4s;
-  animation-timing-function: cubic-bezier(0.42, 0, 1, 1);
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in;
   animation-name: slide-in;
 }
 
 @keyframes slide-in {
-  from {
-    scale: 1.1;
-    translate: 0 -50vh;
-    rotate: -5deg;
+  0% {
+    translate: 0 -60vh;
   }
-  to {
-    scale: 1;
+  90% {
+    translate: 0 1vh;
+  }
+  100% {
     translate: 0 0;
-    rotate: 0deg;
   }
 }

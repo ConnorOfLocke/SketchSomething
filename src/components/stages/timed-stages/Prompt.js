@@ -4,26 +4,39 @@ import { useState } from "react";
 
 function Prompt({ time, onStepDone, prompt, children }) {
   const [hideState, setHideState] = useState(true);
+  const [showTimesUp, setShowTimesUp] = useState(false);
 
   function onPauseCallback(pauseState) {
     setHideState(pauseState);
   }
 
+  function onPromptDone() {
+    setShowTimesUp(true);
+  }
+
+  function onTimesUpDone() {
+    setShowTimesUp(false);
+    onStepDone();
+  }
+
   return (
-    <>
-      <TimedStage
-        key={prompt}
-        time={time}
-        onStepDone={onStepDone}
-        pausable
-        onPauseCallback={onPauseCallback}
+    <TimedStage
+      key={prompt}
+      time={showTimesUp ? 2000 : time}
+      onTimeDone={showTimesUp ? onTimesUpDone : onPromptDone}
+      pausable
+      hideTimer={showTimesUp}
+      onPauseCallback={onPauseCallback}
+    >
+      {children}
+      <div
+        className={`${classes.prompt} ${hideState ? classes.paused : ""} ${
+          showTimesUp ? classes.timesUp : ""
+        }`}
       >
-        {children}
-        <div className={`${classes.prompt} ${hideState ? classes.paused : ""}`}>
-          <h1>{hideState ? "PAUSED" : prompt}</h1>
-        </div>
-      </TimedStage>
-    </>
+        <h1>{hideState ? "PAUSED" : showTimesUp ? "Times Up!" : prompt}</h1>
+      </div>
+    </TimedStage>
   );
 }
 

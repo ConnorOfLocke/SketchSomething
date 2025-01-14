@@ -1,3 +1,7 @@
 .timedStage {
   min-height: 8rem;
 }
+
+.timedStage br {
+  height: 1rem;
+}

@@ -1,0 +1,18 @@
+export const TODO = [
+  "Add Button to set Dark Mode",
+  "Improve landing animation",
+  "Add confietti",
+  ":focus pass",
+  "More Subjects",
+  "Images for the exercise step",
+  "Style the Scroll bar",
+  "Website Logos",
+  "Fix disabled buttons still animating hovering",
+  "404 page",
+  "Fix backdrop animation for firefox",
+  "Tooltips for settings",
+  "Gradual slow down on set times",
+  "Simthsonian api for subjects",
+  "Pictures for stretches",
+  "Public domain subject prompts",
+];
