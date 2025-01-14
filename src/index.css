@@ -1,4 +1,5 @@
-:root/*[data-theme="light"]*/ {
+:root {
+  --background-image: url("../public/cork-board.png");
   --spiggleedoo-main: #f578e0;
   --spiggleedoo-secondary: #f4f14e;
   --spiggleedoo-accent: #6ee376;
@@ -63,12 +64,13 @@
   --accent-900: #002f33;
   --accent-950: #00171a;
 }
-/*
-:root[data-theme="dark"] {
+
+[data-theme="dark"] {
+  --background-image: url("../public/stressed_linen.webp");
   --spiggleedoo-main: #f578e0;
-  --spiggleedoo-secondary: #F4F14E;
-  --spiggleedoo-accent: #6EE376;
-  
+  --spiggleedoo-secondary: #f4f14e;
+  --spiggleedoo-accent: #6ee376;
+
   --text-50: #0a0712;
   --text-100: #130f24;
   --text-200: #271d49;
@@ -128,7 +130,7 @@
   --accent-800: #99f7ff;
   --accent-900: #ccfbff;
   --accent-950: #e5fdff;
-}*/
+}
 
 body {
   margin: 0;
@@ -137,13 +139,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("../public/cork-board.png");
+  background-image: var(--background-image);
   text-align: center;
   width: auto;
   min-height: 100vh;
   height: 100%;
 }
 
+body,
 h1,
 h2,
 h3,
@@ -152,6 +155,7 @@ legend {
   color: var(--text-800);
 }
 
-p {
+p,
+li {
   color: var(--text-800);
 }

@@ -1,6 +1,7 @@
 .iconWrapper {
   margin: auto 0;
   display: block;
+  color: var(--text-800);
 }
 
 .icon.bluesky {
