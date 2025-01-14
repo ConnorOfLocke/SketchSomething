@@ -2,6 +2,7 @@
   border-radius: 1rem;
   border: 0.25rem solid var(--background-200);
   background-color: var(--background-100);
+  margin-bottom: 1rem;
 }
 
 .foldableAreaTitle {
@@ -11,6 +12,7 @@
 .hiddenContent.shown {
   transition: opacity 1s;
   opacity: 1;
+  padding-bottom: 1rem;
 }
 
 .hiddenContent.hidden {

@@ -4,15 +4,13 @@
 }
 
 .innerContent {
-  margin-top: 8vh;
-
   background: var(--background-50);
   box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
   border-radius: 2.5rem 2.5rem;
   padding: 1rem;
+  margin: 6vh 1rem 8vh 1rem;
 
   width: 420px;
-  margin-bottom: 4rem;
 
   transition: height 1s;
 }

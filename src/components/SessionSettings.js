@@ -3,13 +3,9 @@ import classes from "./SessionSettings.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { sessionSettingsActions } from "../store/session-settings-slice";
 import { useNavigate } from "react-router";
-import {
-  SET_QUANTITY,
-  SET_TIME,
-  PROMPTS_PER_SET,
-  WARM_UP_SESSION,
-  FULL_SESSION,
-} from "../data/settings";
+import { SET_QUANTITY, SET_TIME, PROMPTS_PER_SET } from "../data/settings";
+/*WARM_UP_SESSION,
+  FULL_SESSION,*/
 import { SUBJECTS } from "../data/subjects";
 import FoldableArea from "./utils/layouts/FoldableArea";
 import { CheckboxSet, StyledCheckbox } from "./utils/checkboxs";
@@ -27,6 +23,7 @@ function SessionSettings() {
   const navigate = useNavigate();
   const sessionSettings = useSelector((state) => state.sessionSettings);
 
+  /*
   async function onWarmupClicked() {
     await dispatch(sessionSettingsActions.setSettings(WARM_UP_SESSION));
     navigate("/session");
@@ -35,7 +32,7 @@ function SessionSettings() {
   async function onFullSessionClicked() {
     await dispatch(sessionSettingsActions.setSettings(FULL_SESSION));
     navigate("/session");
-  }
+  }*/
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -58,7 +55,10 @@ function SessionSettings() {
   return (
     <>
       <form onSubmit={onSubmit} className={classes.settings}>
-        <FoldableArea headerText={"Session Settings"}>
+        <FoldableArea
+          className={classes.settingsArea}
+          headerText={"Session Settings"}
+        >
           <CheckboxSet
             dataSet={SET_QUANTITY}
             setName={setQuantityID}
@@ -83,7 +83,7 @@ function SessionSettings() {
           <CheckboxSet
             dataSet={SUBJECTS.map((subject) => subject.name)}
             setName={subjectTypeID}
-            legendText={"Drawing Subject Types"}
+            legendText={"Prompts"}
             defaultValues={sessionSettings.subjects}
           >
             <p>If no subjects are selected, they will be selected at random</p>
@@ -96,23 +96,15 @@ function SessionSettings() {
               setName={stretchesCheckID}
             />
           </div>
-          <div className={classes.buttonContainer}>
+        </FoldableArea>
+        <div className={classes.buttonContainer}>
+          <CenteredColumn>
             <StyledButton buttonType="primary" type="submit">
               Start
             </StyledButton>
-          </div>
-        </FoldableArea>
+          </CenteredColumn>
+        </div>
       </form>
-      <div className={classes.buttonContainer}>
-        <CenteredColumn>
-          <StyledButton buttonType="primary" onClick={onWarmupClicked}>
-            Warm Up
-          </StyledButton>
-          <StyledButton buttonType="primary" onClick={onFullSessionClicked}>
-            Full Session
-          </StyledButton>
-        </CenteredColumn>
-      </div>
     </>
   );
 }
