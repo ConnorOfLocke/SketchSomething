@@ -35,7 +35,7 @@ function Stretches({ onStepDone }) {
     <TimedStage
       key={`stretch_${stretchIndex}`}
       time={currentStep.time * 1000}
-      onStepDone={onStretchStepDone}
+      onTimeDone={onStretchStepDone}
     >
       <div className={classes.exerciseContainer}>
         <h3 className={classes.exerciseText}>{currentStep.text}</h3>

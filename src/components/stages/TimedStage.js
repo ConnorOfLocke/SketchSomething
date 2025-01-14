@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 function TimedStage({
   time,
   children,
-  onStepDone,
+  onTimeDone,
   pausable,
   skippable,
   hideTimer,
@@ -18,7 +18,7 @@ function TimedStage({
   const { modalOpen } = useSelector((state) => state.uiState);
   const { timeCount, pauseState, setPauseState } = useVisualTimer(
     time,
-    onStepDone
+    onTimeDone
   );
 
   useEffect(
@@ -38,7 +38,7 @@ function TimedStage({
   }
 
   function onSkipClick() {
-    onStepDone();
+    onTimeDone();
   }
 
   useEffect(() => {
@@ -47,23 +47,25 @@ function TimedStage({
     }
   }, [pauseState, onPauseCallback]);
 
-  let timerComponent = null;
+  let timerTextComponent = null;
   if (timerText) {
     if (Array.isArray(timerText)) {
       const timerTextIndex = Math.floor((timeCount / time) * timerText.length);
-      timerComponent = timerText[timerTextIndex];
+      timerTextComponent = timerText[timerTextIndex];
     } else {
-      timerComponent = timerText;
+      timerTextComponent = timerText;
     }
   }
 
   return (
     <>
       <section className={classes.timedStage}>
-        {!hideTimer && (
+        {!hideTimer ? (
           <StyledProgress value={timeCount} max={time} isPaused={pauseState} />
+        ) : (
+          <br />
         )}
-        {timerComponent}
+        {timerTextComponent}
         {children}
       </section>
       {pausable && (

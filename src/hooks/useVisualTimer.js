@@ -5,7 +5,10 @@ const useVisualTimer = (time, onTimeout, timerInterval = 30) => {
   const [pauseState, setPauseState] = useState(false);
 
   useEffect(() => {
-    if (timeCount >= time) onTimeout();
+    if (timeCount >= time) {
+      setTimeCount(0);
+      onTimeout();
+    }
   }, [timeCount, time, onTimeout]);
 
   useEffect(() => {

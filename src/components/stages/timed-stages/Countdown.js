@@ -24,7 +24,7 @@ function Countdown({ onStepDone }) {
   return (
     <TimedStage
       time={time}
-      onStepDone={onStepDone}
+      onTimeDone={onStepDone}
       hideTimer
       timerText={timerTexts}
     ></TimedStage>
