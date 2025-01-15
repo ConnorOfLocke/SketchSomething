@@ -6,6 +6,7 @@ const defaultSessionSettings = {
   promptsPerSet: 8,
   subjects: ["Animals"],
   stretches: true,
+  graduallyMoreTime: true,
 };
 
 const sessionSettingsSlice = createSlice({

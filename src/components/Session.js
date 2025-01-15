@@ -39,12 +39,12 @@ function createSession(sessionSettings) {
 
     sessionSteps.push({
       type: promptSetId,
-      setTime: sessionSettings.setTime,
-      encouraging: sessionSettings.encouraging,
-      promptsPerSet: sessionSettings.promptsPerSet,
       subjectName: promptSubjectName,
       promptSetIndex: i,
+      setTime: sessionSettings.setTime,
+      promptsPerSet: sessionSettings.promptsPerSet,
       setQuantity: sessionSettings.setQuantity,
+      graduallyMoreTime: sessionSettings.graduallyMoreTime,
     });
   }
 
@@ -76,13 +76,11 @@ function getSessionStep(sessionStep, onStepDone) {
       return (
         <PromptSet
           id={sessionStep}
-          time={sessionStep.setTime * 1000 * 60}
-          encouraging={sessionStep.encouraging}
-          subject={getFullSubject(sessionStep.subjectName)}
+          time={sessionStep.setTime * 1000 * 60} //from mins to milliseconds
           promptsPerSet={sessionStep.promptsPerSet}
-          promptSetIndex={sessionStep.promptSetIndex}
-          setQuantity={sessionStep.setQuantity}
+          subject={getFullSubject(sessionStep.subjectName)}
           onStepDone={onStepDone}
+          graduallyMoreTime={sessionStep.graduallyMoreTime}
         />
       );
     default:

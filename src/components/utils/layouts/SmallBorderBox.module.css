@@ -1,0 +1,21 @@
+.smallBorderBoxHeader {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.smallBorderBoxHeader h3 {
+  background-color: var(--background-100);
+  font-size: medium;
+  margin: 0 0;
+}
+
+.smallBorderBox {
+  margin: 0.25rem 1rem 1.25rem 1rem;
+  border: 0.2rem solid var(--background-400);
+  border-radius: 0.5rem;
+
+  /* To fix the lil artefacts with borders */
+  mask-image: -webkit-radial-gradient(circle, white, black);
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+}

@@ -1,3 +1,4 @@
+import SmallBorderBox from "../layouts/SmallBorderBox";
 import classes from "./CheckboxSet.module.css";
 import StyledCheckbox from "./StyledCheckbox";
 import StyledRadio from "./StyledRadio";
@@ -13,10 +14,10 @@ function CheckboxSet({
 }) {
   return (
     <>
-      <header className={classes.buttonHeader}>
-        <h3>{legendText}</h3>
-      </header>
-      <div className={isRadio ? classes.radioButtons : classes.checkboxButtons}>
+      <SmallBorderBox
+        titleText={legendText}
+        className={isRadio ? classes.radioButtons : classes.checkboxButtons}
+      >
         {dataSet.map((data) => {
           let defValue = isRadio
             ? defaultValues && defaultValues === data
@@ -50,7 +51,7 @@ function CheckboxSet({
           return box;
         })}
         {children}
-      </div>
+      </SmallBorderBox>
     </>
   );
 }

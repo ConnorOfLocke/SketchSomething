@@ -1,37 +1,15 @@
 /* RADIO BUTTONS */
 /* adapted from https://www.youtube.com/watch?v=PlldXyuTnUw */
 
-.buttonHeader {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
-.buttonHeader h3 {
-  background-color: var(--background-100);
-  font-size: medium;
-  margin: 0 0;
-}
-
-.radioButtons,
-.checkboxButtons {
-  display: flex;
-  margin: 0.25rem 1rem 1.25rem 1rem;
-  border: 0.2rem solid var(--background-400);
-  border-radius: 0.5rem;
-
-  /* To fix the lil artefacts with borders */
-  mask-image: -webkit-radial-gradient(circle, white, black);
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-}
-
 .radioButtons {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 /* CHECKBOX BUTTONS */
 .checkboxButtons {
+  display: flex;
   padding: 1rem 0.5rem 0.5rem 0.5rem;
   flex-direction: column;
   justify-content: left;
