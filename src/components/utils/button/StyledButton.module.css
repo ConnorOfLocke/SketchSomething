@@ -9,7 +9,7 @@
   border-radius: 1rem;
   cursor: pointer;
   transition: background-color ease-in 100ms, color ease-in 100ms;
-  box-shadow: 2px 2px 2px 1px var(--background-800);
+  box-shadow: 2px 2px 2px 1px var(--primary-box-shadow);
 }
 
 .primaryStyledButton {
@@ -24,23 +24,33 @@
   border: 0.2rem solid var(--background-400);
 }
 
+.primaryStyledButton[disabled],
+.primaryStyledButton[disabled]:hover,
+.primaryStyledButton[disabled]:focus,
+.primaryStyledButton[disabled]:active,
 .primaryStyledButton:disabled {
   color: var(--text-50);
   background-color: var(--background-200);
   border: 0.2rem solid var(--background-200);
   box-shadow: none;
+  cursor: none;
 }
 
+.secondaryStyledButton[disabled],
+.secondaryStyledButton[disabled]:hover,
+.secondaryStyledButton[disabled]:focus,
+.secondaryStyledButton[disabled]:active,
 .secondaryStyledButton:disabled {
   color: var(--text-200);
   background-color: transparent;
   border: 0.2rem solid var(--background-200);
   box-shadow: none;
+  cursor: auto;
 }
 
 .primaryStyledButton:focus,
 .secondaryStyledButton:focus {
-  box-shadow: 4px 4px 4px 4px var(--background-800);
+  box-shadow: 4px 4px 4px 4px var(--primary-box-shadow);
 }
 
 .primaryStyledButton:hover {

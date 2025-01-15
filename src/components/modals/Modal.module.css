@@ -8,7 +8,7 @@
 }
 
 .modal::backdrop {
-  background-color: var(--background-900);
+  background-color: var(--modal-normal-backdrop);
   opacity: 0.75;
 }
 

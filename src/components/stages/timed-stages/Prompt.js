@@ -34,7 +34,9 @@ function Prompt({ time, onStepDone, prompt, children }) {
           showTimesUp ? classes.timesUp : ""
         }`}
       >
-        <h1>{hideState ? "PAUSED" : showTimesUp ? "Times Up!" : prompt}</h1>
+        <h1 className={!hideState && showTimesUp ? classes.timesUp : ""}>
+          {hideState ? "PAUSED" : showTimesUp ? "Times Up!" : prompt}
+        </h1>
       </div>
     </TimedStage>
   );
