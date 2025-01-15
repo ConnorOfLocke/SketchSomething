@@ -24,18 +24,28 @@
   border: 0.2rem solid var(--background-400);
 }
 
+.primaryStyledButton[disabled],
+.primaryStyledButton[disabled]:hover,
+.primaryStyledButton[disabled]:focus,
+.primaryStyledButton[disabled]:active,
 .primaryStyledButton:disabled {
   color: var(--text-50);
   background-color: var(--background-200);
   border: 0.2rem solid var(--background-200);
   box-shadow: none;
+  cursor: none;
 }
 
+.secondaryStyledButton[disabled],
+.secondaryStyledButton[disabled]:hover,
+.secondaryStyledButton[disabled]:focus,
+.secondaryStyledButton[disabled]:active,
 .secondaryStyledButton:disabled {
   color: var(--text-200);
   background-color: transparent;
   border: 0.2rem solid var(--background-200);
   box-shadow: none;
+  cursor: auto;
 }
 
 .primaryStyledButton:focus,

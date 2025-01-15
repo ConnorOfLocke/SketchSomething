@@ -91,7 +91,7 @@ function SessionSettings() {
           <div className={classes.checkboxContainer}>
             <StyledCheckbox
               id={stretchesCheckID}
-              defaultChecked={true}
+              defaultChecked={sessionSettings.stretches}
               value="Include hand stretches"
               setName={stretchesCheckID}
             />
