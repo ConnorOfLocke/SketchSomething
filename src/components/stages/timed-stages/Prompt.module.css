@@ -21,6 +21,22 @@
   animation: 0.5s fade-in ease-in-out;
 }
 
+.prompt h1.timesUp {
+  animation: 0.5s scale-bump;
+}
+
+@keyframes scale-bump {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;

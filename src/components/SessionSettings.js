@@ -11,12 +11,14 @@ import FoldableArea from "./utils/layouts/FoldableArea";
 import { CheckboxSet, StyledCheckbox } from "./utils/checkboxs";
 import StyledButton from "./utils/button/StyledButton";
 import { CenteredColumn } from "./utils/layouts";
+import SmallBorderBox from "./utils/layouts/SmallBorderBox";
 
 const setTimeID = "setTime";
 const setQuantityID = "setQuantity";
 const promptsPerSetID = "promptsPerSet";
 const subjectTypeID = "subjectType";
 const stretchesCheckID = "stretches";
+const graduallyMoreTimeID = "graduallyMoreTime";
 
 function SessionSettings() {
   const dispatch = useDispatch();
@@ -46,6 +48,7 @@ function SessionSettings() {
       ),
       subjects: formData.getAll(subjectTypeID) || [],
       stretches: Boolean(formData.get(stretchesCheckID)) || false,
+      graduallyMoreTime: Boolean(formData.get(graduallyMoreTimeID)) || false,
     };
 
     await dispatch(sessionSettingsActions.setSettings(parsedData));
@@ -88,10 +91,26 @@ function SessionSettings() {
           >
             <p>If no subjects are selected, they will be selected at random</p>
           </CheckboxSet>
+          <SmallBorderBox
+            titleText={"Time Per Prompt"}
+            className={classes.checkboxContainer}
+          >
+            <br />
+            <StyledCheckbox
+              id={graduallyMoreTimeID}
+              defaultChecked={sessionSettings.graduallyMoreTime}
+              value="Gradually Increase Time per Prompt"
+              setName={graduallyMoreTimeID}
+            />
+            <p>
+              Sets will be very quick, then slow down giving you more time to
+              draw
+            </p>
+          </SmallBorderBox>
           <div className={classes.checkboxContainer}>
             <StyledCheckbox
               id={stretchesCheckID}
-              defaultChecked={true}
+              defaultChecked={sessionSettings.stretches}
               value="Include hand stretches"
               setName={stretchesCheckID}
             />

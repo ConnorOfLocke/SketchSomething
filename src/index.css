@@ -1,7 +1,7 @@
-:root/*[data-theme="light"]*/ {
-  --spiggleedoo-main: #f578e0;
-  --spiggleedoo-secondary: #f4f14e;
-  --spiggleedoo-accent: #6ee376;
+:root {
+  --background-image: url("../public/cork-board.png");
+  --primary-content-background: #ebebfa;
+  --modal-normal-backdrop: #0a0a29;
 
   --text-50: #efedf8;
   --text-100: #dfdbf0;
@@ -63,12 +63,12 @@
   --accent-900: #002f33;
   --accent-950: #00171a;
 }
-/*
-:root[data-theme="dark"] {
-  --spiggleedoo-main: #f578e0;
-  --spiggleedoo-secondary: #F4F14E;
-  --spiggleedoo-accent: #6EE376;
-  
+
+[data-theme="dark"] {
+  --background-image: url("../public/stressed_linen.webp");
+  --primary-content-background: #0a0a29;
+  --modal-normal-backdrop: #1f1f7a;
+
   --text-50: #0a0712;
   --text-100: #130f24;
   --text-200: #271d49;
@@ -128,7 +128,18 @@
   --accent-800: #99f7ff;
   --accent-900: #ccfbff;
   --accent-950: #e5fdff;
-}*/
+}
+
+:root {
+  --spiggleedoo-main: #f578e0;
+  --spiggleedoo-secondary: #f4f14e;
+  --spiggleedoo-accent: #6ee376;
+  --primary-box-shadow: black;
+}
+
+* {
+  transition: background-color ease-in-out 400ms;
+}
 
 body {
   margin: 0;
@@ -137,13 +148,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("../public/cork-board.png");
+  background-image: var(--background-image);
   text-align: center;
   width: auto;
   min-height: 100vh;
   height: 100%;
+
+  transition: background-image ease-in-out 400ms;
 }
 
+body,
 h1,
 h2,
 h3,
@@ -152,6 +166,7 @@ legend {
   color: var(--text-800);
 }
 
-p {
+p,
+li {
   color: var(--text-800);
 }

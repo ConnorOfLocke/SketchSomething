@@ -8,6 +8,7 @@ export const WARM_UP_SESSION = {
   promptsPerSet: 8,
   subjects: [],
   stretches: true,
+  graduallyMoreTime: false,
 };
 
 export const FULL_SESSION = {
@@ -16,4 +17,5 @@ export const FULL_SESSION = {
   promptsPerSet: 8,
   subjects: [],
   stretches: true,
+  graduallyMoreTime: false,
 };

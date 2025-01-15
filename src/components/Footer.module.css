@@ -5,31 +5,42 @@ footer {
   height: 3rem;
 }
 
-footer .todo {
-  width: 8rem;
+footer .todo,
+footer .about {
   position: absolute;
   margin-right: 1rem;
-  right: 12rem;
   padding: 0.5rem;
   border-radius: 2rem 2rem 0 0;
-  background-color: var(--secondary-50);
-  box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
+  background-color: var(--primary-content-background);
+  box-shadow: 0.25rem 0.25rem 1rem var(--primary-box-shadow);
+}
+
+footer .todo {
+  width: 8rem;
+  right: 12rem;
 }
 
 footer .about {
   width: 10rem;
-  position: absolute;
-  margin-right: 1rem;
   right: 0;
+}
+
+footer .darkMode {
+  position: absolute;
+  margin-right: 0;
   padding: 0.5rem;
-  border-radius: 2rem 2rem 0 0;
-  background-color: var(--secondary-50);
-  box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
+  border-radius: 2rem 0 0 2rem;
+  background-color: var(--primary-content-background);
+  box-shadow: 0.25rem 0.25rem 1rem var(--primary-box-shadow);
+  width: 4rem;
+  right: -1rem;
+  bottom: 4rem;
 }
 
 /* button */
 footer .about button,
-footer .todo button {
+footer .todo button,
+footer .darkMode button {
   margin: 0;
   width: 100%;
   border-radius: 1.5rem 1.5rem 0 0;
@@ -48,16 +59,29 @@ footer .todo button {
   background-color: var(--accent-50);
 }
 
+footer .darkMode button {
+  border-radius: 1.5rem 0 0 1.5rem;
+  padding: 0.25rem 0.25rem;
+  border: 0.25rem solid var(--primary-200);
+  background-color: var(--primary-50);
+}
+
 /* button text */
 footer .about button h3,
-footer .todo button h3 {
+footer .todo button h3,
+footer .darkMode button h3 {
   color: var(--text-800);
   transition: color ease-in 100ms;
+}
+
+footer .about button h3,
+footer .todo button h3 {
   margin-top: 0.25rem;
 }
 
 footer .about button:hover h3,
-footer .todo button:hover h3 {
+footer .todo button:hover h3,
+footer .darkMode button:hover h3 {
   color: var(--text-50);
 }
 
@@ -68,5 +92,10 @@ footer .about button:hover {
 
 footer .todo button:hover {
   background-color: var(--accent-400);
+  color: var(--text-50);
+}
+
+footer .darkMode button:hover {
+  background-color: var(--primary-400);
   color: var(--text-50);
 }

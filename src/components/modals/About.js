@@ -3,8 +3,11 @@ import { LinkButton } from "../utils/button/index.js";
 import { IconWrapper } from "../utils/icons/index.js";
 import SOCIALS from "../../data/socials.js";
 import Modal from "./Modal.js";
+import { useSelector } from "react-redux";
 
 function AboutModal({ open, onConfirm }) {
+  const { darkMode } = useSelector((state) => state.uiState);
+
   return (
     <Modal open={open} onConfirm={onConfirm} className={classes.about}>
       <h1>Thanks for checking this out!</h1>
@@ -26,7 +29,11 @@ function AboutModal({ open, onConfirm }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconWrapper iconID={social.id} size={"2.5rem"} />
+            <IconWrapper
+              iconID={social.id}
+              size={"2.5rem"}
+              isDarkMode={darkMode}
+            />
           </LinkButton>
         ))}
       </nav>

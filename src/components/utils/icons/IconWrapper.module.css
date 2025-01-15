@@ -1,18 +1,19 @@
 .iconWrapper {
   margin: auto 0;
   display: block;
+  color: var(--text-800);
 }
 
 .icon.bluesky {
   color: #1185fe;
 }
 
-.icon.email {
-  color: #101010;
-}
-
 .icon.github {
   color: #171515;
+}
+
+.icon.github.dark {
+  color: #f0f6fc;
 }
 
 .icon.linkedIn {
