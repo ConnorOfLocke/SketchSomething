@@ -9,7 +9,7 @@
   border-radius: 1rem;
   cursor: pointer;
   transition: background-color ease-in 100ms, color ease-in 100ms;
-  box-shadow: 2px 2px 2px 1px var(--background-800);
+  box-shadow: 2px 2px 2px 1px var(--primary-box-shadow);
 }
 
 .primaryStyledButton {
@@ -40,7 +40,7 @@
 
 .primaryStyledButton:focus,
 .secondaryStyledButton:focus {
-  box-shadow: 4px 4px 4px 4px var(--background-800);
+  box-shadow: 4px 4px 4px 4px var(--primary-box-shadow);
 }
 
 .primaryStyledButton:hover {

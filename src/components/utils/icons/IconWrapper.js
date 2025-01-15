@@ -17,27 +17,27 @@ const iconPairs = [
   { id: "darkmode", icon: MdDarkMode },
 ];
 
-function IconWrapper({ iconID, size = "1rem" }) {
+function IconWrapper({ iconID, isDarkMode, size = "1rem" }) {
   const iconindex = iconPairs.findIndex((icon) => icon.id === iconID);
   const iconPair = iconPairs[iconindex];
 
-  let iconClassName = "";
+  let iconClassName = `${classes.icon} ${isDarkMode ? classes.dark : ""}`;
 
   switch (iconID) {
     case "bluesky":
-      iconClassName = `${classes.icon} ${classes.bluesky}`;
+      iconClassName = iconClassName.concat(` ${classes.bluesky}`);
       break;
     case "github":
-      iconClassName = `${classes.icon} ${classes.github}`;
+      iconClassName = iconClassName.concat(` ${classes.github}`);
       break;
     case "linkedIn":
-      iconClassName = `${classes.icon} ${classes.linkedIn}`;
+      iconClassName = iconClassName.concat(` ${classes.linkedIn}`);
       break;
     case "email":
-      iconClassName = `${classes.icon} ${classes.email}`;
+      iconClassName = iconClassName.concat(` ${classes.email}`);
       break;
     default:
-      iconClassName = `${classes.icon}`;
+      iconClassName = iconClassName = `${classes.icon}`;
       break;
   }
 

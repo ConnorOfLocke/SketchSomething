@@ -1,8 +1,7 @@
 :root {
   --background-image: url("../public/cork-board.png");
-  --spiggleedoo-main: #f578e0;
-  --spiggleedoo-secondary: #f4f14e;
-  --spiggleedoo-accent: #6ee376;
+  --primary-content-background: #ebebfa;
+  --modal-normal-backdrop: #0a0a29;
 
   --text-50: #efedf8;
   --text-100: #dfdbf0;
@@ -67,9 +66,8 @@
 
 [data-theme="dark"] {
   --background-image: url("../public/stressed_linen.webp");
-  --spiggleedoo-main: #f578e0;
-  --spiggleedoo-secondary: #f4f14e;
-  --spiggleedoo-accent: #6ee376;
+  --primary-content-background: #0a0a29;
+  --modal-normal-backdrop: #1f1f7a;
 
   --text-50: #0a0712;
   --text-100: #130f24;
@@ -132,6 +130,17 @@
   --accent-950: #e5fdff;
 }
 
+:root {
+  --spiggleedoo-main: #f578e0;
+  --spiggleedoo-secondary: #f4f14e;
+  --spiggleedoo-accent: #6ee376;
+  --primary-box-shadow: black;
+}
+
+* {
+  transition: background-color ease-in-out 400ms;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -144,6 +153,8 @@ body {
   width: auto;
   min-height: 100vh;
   height: 100%;
+
+  transition: background-image ease-in-out 400ms;
 }
 
 body,

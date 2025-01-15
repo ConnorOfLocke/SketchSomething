@@ -4,6 +4,7 @@ const defaultUIState = {
   modalOpen: false,
   prefersDarkMode: false,
   overrideDarkMode: "",
+  darkMode: false,
 };
 
 const uiStateSlice = createSlice({
@@ -15,9 +16,17 @@ const uiStateSlice = createSlice({
     },
     setPreferDarkMode(state, action) {
       state.prefersDarkMode = action.payload;
+
+      state.darkMode = Boolean(state.overrideDarkMode)
+        ? state.overrideDarkMode === "dark"
+        : state.prefersDarkMode;
     },
     setOverrideDarkMode(state, action) {
       state.overrideDarkMode = action.payload;
+
+      state.darkMode = Boolean(state.overrideDarkMode)
+        ? state.overrideDarkMode === "dark"
+        : state.prefersDarkMode;
     },
   },
 });

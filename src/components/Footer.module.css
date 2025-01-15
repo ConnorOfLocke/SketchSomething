@@ -11,8 +11,8 @@ footer .about {
   margin-right: 1rem;
   padding: 0.5rem;
   border-radius: 2rem 2rem 0 0;
-  background-color: var(--secondary-50);
-  box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
+  background-color: var(--primary-content-background);
+  box-shadow: 0.25rem 0.25rem 1rem var(--primary-box-shadow);
 }
 
 footer .todo {
@@ -30,11 +30,11 @@ footer .darkMode {
   margin-right: 0;
   padding: 0.5rem;
   border-radius: 2rem 0 0 2rem;
-  background-color: var(--secondary-50);
-  box-shadow: 0.25rem 0.25rem 1rem var(--background-800);
+  background-color: var(--primary-content-background);
+  box-shadow: 0.25rem 0.25rem 1rem var(--primary-box-shadow);
   width: 4rem;
-  right: 0;
-  bottom: 8rem;
+  right: -1rem;
+  bottom: 4rem;
 }
 
 /* button */

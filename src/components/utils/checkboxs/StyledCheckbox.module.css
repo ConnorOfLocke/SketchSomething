@@ -42,12 +42,12 @@
 
 .styledCheckbox input[type="checkbox"]:checked + label::before {
   background: var(--background-400);
-  box-shadow: inset 1em 1em var(--form-control-color);
+  box-shadow: inset 1em 1em var(--primary-box-shadow);
   border-color: currentColor;
   box-shadow: 0 0 0.25rem 0 var(--background-400);
 }
 
 .styledCheckbox input[type="checkbox"]:focus + label::before {
-  box-shadow: 0 0 0.25rem 0 var(--background-400);
+  box-shadow: 0 0 0.25rem 0 var(--primary-box-shadow);
   border-color: currentColor;
 }
