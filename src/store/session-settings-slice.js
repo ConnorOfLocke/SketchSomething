@@ -4,9 +4,18 @@ import { SUBJECTS } from "../data/subjects";
 
 const defaultSessionSettings = {
   sets: [
-    { prompts: 8, time: 1, subject: "Animals", graduallyMoreTime: true },
-    { prompts: 4, time: 2, subject: "Emotions", graduallyMoreTime: true },
-    { prompts: 4, time: 5, subject: "Textures", graduallyMoreTime: true },
+    {
+      prompts: PROMPTS_PER_SET[0],
+      time: SET_TIME[0],
+      subject: SUBJECTS[0],
+      graduallyMoreTime: true,
+    },
+    {
+      prompts: PROMPTS_PER_SET[1],
+      time: SET_TIME[0],
+      subject: SUBJECTS[1],
+      graduallyMoreTime: false,
+    },
   ],
   stretches: true,
 };
