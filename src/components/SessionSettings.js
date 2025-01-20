@@ -19,20 +19,9 @@ const subjectTypeID = "subjectType";
 const stretchesCheckID = "stretches";
 const graduallyMoreTimeID = "graduallyMoreTime";
 
-function SessionSettings({ onSessionStart }) {
+function SessionSettings({ onConfirmSettings }) {
   const dispatch = useDispatch();
   const sessionSettings = useSelector((state) => state.sessionSettings);
-
-  /*
-  async function onWarmupClicked() {
-    await dispatch(sessionSettingsActions.setSettings(WARM_UP_SESSION));
-    navigate("/session");
-  }
-
-  async function onFullSessionClicked() {
-    await dispatch(sessionSettingsActions.setSettings(FULL_SESSION));
-    navigate("/session");
-  }*/
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -51,7 +40,7 @@ function SessionSettings({ onSessionStart }) {
 
     await dispatch(sessionSettingsActions.setSettings(parsedData));
 
-    onSessionStart();
+    onConfirmSettings();
   }
 
   return (
