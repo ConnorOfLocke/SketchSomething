@@ -19,25 +19,25 @@ function SetSettings({
 
   function onTimeChange(value) {
     setLocalState((prevState) => {
-      return { ...prevState, time: value };
+      return { ...prevState, [setTimeID]: value };
     });
   }
 
   function onPromptsChange(value) {
     setLocalState((prevState) => {
-      return { ...prevState, prompts: value };
+      return { ...prevState, [promptsPerSetID]: value };
     });
   }
 
   function onSubjectChange(value) {
     setLocalState((prevState) => {
-      return { ...prevState, subject: value };
+      return { ...prevState, [subjectTypeID]: value };
     });
   }
 
   function onGradualTimeChange(value) {
     setLocalState((prevState) => {
-      return { ...prevState, graduallyMoreTime: value };
+      return { ...prevState, [graduallyMoreTimeID]: value };
     });
   }
 
@@ -73,13 +73,14 @@ function SetSettings({
         displayAsRow={false}
         onClick={onSubjectChange}
       ></CheckboxSet>
+
       <SmallBorderBox
         titleText={"Time Adjustment"}
         className={classes.checkboxContainer}
       >
         <br />
         <StyledCheckbox
-          id={graduallyMoreTimeID}
+          id={`${graduallyMoreTimeID}${setIndex}`}
           defaultChecked={localState.graduallyMoreTime}
           value="Gradually Increase Time per Prompt"
           setName={graduallyMoreTimeID}
