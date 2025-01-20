@@ -1,9 +1,10 @@
-//import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import classes from "./ConfirmSettings.module.css";
 import Modal from "./Modal";
+import pluralize from "pluralize";
 
 function ConfirmSettingsModal({ ...props }) {
-  //const sessionSettings = useSelector((state) => state.sessionSettings);
+  const sessionSettings = useSelector((state) => state.sessionSettings);
 
   return (
     <Modal
@@ -14,7 +15,14 @@ function ConfirmSettingsModal({ ...props }) {
     >
       <h1>You'll be drawing:</h1>
       <ul>
-        <li>Lots of stuff</li>
+        {sessionSettings.stretches && <li>Hand Stretches</li>}
+        {sessionSettings.sets.map((set, setIndex) => (
+          <li key={setIndex}>{`${set.prompts} ${set.subject} in ${pluralize(
+            "Min",
+            set.time,
+            true
+          )} `}</li>
+        ))}
       </ul>
     </Modal>
   );

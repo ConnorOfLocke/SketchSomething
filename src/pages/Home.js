@@ -1,5 +1,5 @@
 import classes from "./HomePage.module.css";
-import SessionSettings from "../components/SessionSettings";
+import SessionSettings from "../components/session-settings/SessionSettings";
 import { BorderBox, ContentBox } from "../components/utils/layouts";
 import { useNavigate } from "react-router";
 import { useState } from "react";

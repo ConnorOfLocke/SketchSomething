@@ -28,26 +28,16 @@ function createSession(sessionSettings) {
   sessionSteps.push({ type: countdownId });
 
   //sets
-  for (let i = 0; i < sessionSettings.setQuantity; i++) {
-    let promptSubjectName = "";
-    if (sessionSettings.subjects.length > 0) {
-      promptSubjectName =
-        sessionSettings.subjects[i % sessionSettings.subjects.length];
-    } else {
-      const randomIndex = Math.floor(Math.random() * SUBJECTS.length);
-      promptSubjectName = SUBJECTS[randomIndex].name;
-    }
-
-    sessionSteps.push({
-      type: promptSetId,
-      subjectName: promptSubjectName,
-      promptSetIndex: i,
-      setTime: sessionSettings.setTime,
-      promptsPerSet: sessionSettings.promptsPerSet,
-      setQuantity: sessionSettings.setQuantity,
-      graduallyMoreTime: sessionSettings.graduallyMoreTime,
-    });
-  }
+  sessionSteps.push(
+    ...sessionSettings.sets.map((set, setIndex) => {
+      return {
+        type: promptSetId,
+        promptSetIndex: setIndex,
+        title: `Set ${1 + setIndex} of ${sessionSettings.sets.length}`,
+        ...set,
+      };
+    })
+  );
 
   return sessionSteps;
 }
@@ -62,14 +52,12 @@ function getSessionStep(sessionStep, onStepDone) {
       return (
         <PromptSet
           key={sessionStep}
-          headerText={`Set ${1 + sessionStep.promptSetIndex} of ${
-            sessionStep.setQuantity
-          }`}
-          time={sessionStep.setTime * 1000 * 60} //from mins to milliseconds
-          promptsPerSet={sessionStep.promptsPerSet}
-          subject={getFullSubject(sessionStep.subjectName)}
-          onStepDone={onStepDone}
+          headerText={sessionStep.title}
+          time={sessionStep.time * 1000 * 60} //from mins to milliseconds
+          promptsPerSet={sessionStep.prompts}
+          subject={getFullSubject(sessionStep.subject)}
           graduallyMoreTime={sessionStep.graduallyMoreTime}
+          onStepDone={onStepDone}
         />
       );
 
