@@ -13,6 +13,19 @@
   width: 420px;
 }
 
+.fadeIn {
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in;
+  animation-name: fade-in;
+}
+
+.animateOut {
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in;
+  animation-name: slide-out;
+  animation-fill-mode: forwards;
+}
+
 .animateIn {
   animation-duration: 0.8s;
   animation-timing-function: ease-in;
@@ -28,5 +41,24 @@
   }
   100% {
     translate: 0 0;
+  }
+}
+@keyframes slide-out {
+  0% {
+    translate: 0 0vh;
+  }
+  10% {
+    translate: 0 1vh;
+  }
+  100% {
+    translate: 0 -120vh;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
   }
 }

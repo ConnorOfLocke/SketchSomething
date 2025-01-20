@@ -5,7 +5,6 @@ import {
 } from "../components/stages/timed-stages";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { BorderBox, ContentBox } from "./utils/layouts";
 import CompleteModal from "./modals/Complete";
 import { SUBJECTS } from "../data/subjects";
 
@@ -51,31 +50,19 @@ function createSession(sessionSettings) {
   return sessionSteps;
 }
 
-function getSessionName(sessionStep) {
-  switch (sessionStep.type) {
-    case countdownId:
-      return "Get ready!";
-    case stretchesId:
-      return "Stretch it out!";
-    case promptSetId:
-      return `Set ${1 + sessionStep.promptSetIndex} of ${
-        sessionStep.setQuantity
-      }`;
-    default:
-      return "Unrecognised Step type";
-  }
-}
-
 function getSessionStep(sessionStep, onStepDone) {
   switch (sessionStep.type) {
     case countdownId:
-      return <Countdown onStepDone={onStepDone} />;
+      return <Countdown key={sessionStep} onStepDone={onStepDone} />;
     case stretchesId:
       return <Stretches onStepDone={onStepDone} />;
     case promptSetId:
       return (
         <PromptSet
-          id={sessionStep}
+          key={sessionStep}
+          headerText={`Set ${1 + sessionStep.promptSetIndex} of ${
+            sessionStep.setQuantity
+          }`}
           time={sessionStep.setTime * 1000 * 60} //from mins to milliseconds
           promptsPerSet={sessionStep.promptsPerSet}
           subject={getFullSubject(sessionStep.subjectName)}
@@ -114,14 +101,7 @@ function Session({ onSessionDone }) {
 
   return (
     <>
-      <ContentBox key={stepIndex} animate>
-        <BorderBox borderType={"background"}>
-          <header>
-            <h1>{steps && getSessionName(steps[stepIndex])}</h1>
-          </header>
-          {steps ? getSessionStep(steps[stepIndex], onStepDone) : null}
-        </BorderBox>
-      </ContentBox>
+      {steps ? getSessionStep(steps[stepIndex], onStepDone) : null}
       <CompleteModal
         steps={steps}
         open={completeModalOpen}

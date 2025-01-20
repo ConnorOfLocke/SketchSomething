@@ -36,6 +36,8 @@ function Stretches({ onStepDone }) {
       key={`stretch_${stretchIndex}`}
       time={currentStep.time * 1000}
       onTimeDone={onStretchStepDone}
+      headerText={"Stretch it out!"}
+      outroDelay={800}
     >
       <div className={classes.exerciseContainer}>
         <h3 className={classes.exerciseText}>{currentStep.text}</h3>

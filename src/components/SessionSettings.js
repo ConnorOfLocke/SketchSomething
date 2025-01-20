@@ -2,7 +2,6 @@ import classes from "./SessionSettings.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { sessionSettingsActions } from "../store/session-settings-slice";
-import { useNavigate } from "react-router";
 import { SET_QUANTITY, SET_TIME, PROMPTS_PER_SET } from "../data/settings";
 /*WARM_UP_SESSION,
   FULL_SESSION,*/
@@ -20,9 +19,8 @@ const subjectTypeID = "subjectType";
 const stretchesCheckID = "stretches";
 const graduallyMoreTimeID = "graduallyMoreTime";
 
-function SessionSettings() {
+function SessionSettings({ onSessionStart }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const sessionSettings = useSelector((state) => state.sessionSettings);
 
   /*
@@ -52,7 +50,8 @@ function SessionSettings() {
     };
 
     await dispatch(sessionSettingsActions.setSettings(parsedData));
-    navigate("/session");
+
+    onSessionStart();
   }
 
   return (

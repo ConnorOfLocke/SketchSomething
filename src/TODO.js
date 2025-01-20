@@ -10,4 +10,7 @@ export const TODO = [
   "Simthsonian api for subjects",
   "Pictures for stretches",
   "Public domain subject prompts",
+  "Intro Step to confirm settings",
+  "Seperate warm up set of prompts",
+  "Options to change the timing while in a prompt set",
 ];
