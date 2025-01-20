@@ -1,3 +1,4 @@
+import classes from "./Session.module.css";
 import {
   Stretches,
   PromptSet,
@@ -7,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CompleteModal from "./modals/Complete";
 import { SUBJECTS } from "../data/subjects";
+import { ContentBox } from "./utils/layouts";
 
 const countdownId = "countdown";
 const stretchesId = "stretches";
@@ -70,6 +72,7 @@ function getSessionStep(sessionStep, onStepDone) {
           graduallyMoreTime={sessionStep.graduallyMoreTime}
         />
       );
+
     default:
       return <p>Unrecognised Step type</p>;
   }
@@ -101,7 +104,14 @@ function Session({ onSessionDone }) {
 
   return (
     <>
-      {steps ? getSessionStep(steps[stepIndex], onStepDone) : null}
+      {!completeModalOpen && steps
+        ? getSessionStep(steps[stepIndex], onStepDone)
+        : null}
+      {completeModalOpen && (
+        <ContentBox className={classes.sessionBreak}>
+          <br />
+        </ContentBox>
+      )}
       <CompleteModal
         steps={steps}
         open={completeModalOpen}

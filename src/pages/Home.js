@@ -28,7 +28,7 @@ function HomePage() {
         <section className={classes.subtitleText}>
           <h3>Sketch and complete the prompts as fast as you can!</h3>
           <h3 className={classes.subtitleText}>
-            Have fun and aim for "Done" over perfect.
+            Have fun and aim for "Done" with the time you have.
           </h3>
         </section>
         <SessionSettings onSessionStart={onSessionStart} />

@@ -1,12 +1,19 @@
 import classes from "./ContentBox.module.css";
 
-function ContentBox({ children, animateIn, animateOut, fadeIn }) {
+function ContentBox({ children, className, animateIn, animateOut, fadeIn }) {
   let contentClasses = classes.innerContent;
-  if (animateIn)
+  if (className) {
+    contentClasses = contentClasses.concat(` ${className}`);
+  }
+  if (animateIn) {
     contentClasses = contentClasses.concat(` ${classes.animateIn}`);
-  if (animateOut)
+  }
+  if (animateOut) {
     contentClasses = contentClasses.concat(` ${classes.animateOut}`);
-  if (fadeIn) contentClasses = contentClasses.concat(` ${classes.fadeIn}`);
+  }
+  if (fadeIn) {
+    contentClasses = contentClasses.concat(` ${classes.fadeIn}`);
+  }
 
   return (
     <div className={classes.content}>
