@@ -14,9 +14,9 @@ import { SUBJECTS } from "../../data/subjects";
 
 const setQuantityID = "setQuantity";
 
-const setTimeID = "setTime";
-const promptsPerSetID = "promptsPerSet";
-const subjectTypeID = "subjectType";
+const setTimeID = "time";
+const promptsPerSetID = "prompts";
+const subjectTypeID = "subject";
 const stretchesCheckID = "stretches";
 const graduallyMoreTimeID = "graduallyMoreTime";
 
@@ -62,6 +62,20 @@ function SessionSettings({ onConfirmSettings }) {
 
   return (
     <form onSubmit={onSubmit} className={classes.settings}>
+      <SmallBorderBox
+        titleText={"Stretches"}
+        className={classes.stretchContainer}
+      >
+        <StyledCheckbox
+          id={stretchesCheckID}
+          defaultChecked={sessionSettings.stretches}
+          value="Start with hand stretches"
+          setName={stretchesCheckID}
+        />
+        <p>
+          Start your drawing session with some guided hand and arm stretches
+        </p>
+      </SmallBorderBox>
       <CheckboxSet
         dataSet={SET_QUANTITY}
         setName={setQuantityID}
@@ -69,7 +83,9 @@ function SessionSettings({ onConfirmSettings }) {
         defaultValues={sessionSettings.sets.length}
         isRadio
         onClick={onSetQuantityChange}
+        className={classes.settingsContainer}
       />
+
       {sessionSettings.sets.map((set, setIndex) => (
         <SetSettings
           key={setIndex}
@@ -78,21 +94,9 @@ function SessionSettings({ onConfirmSettings }) {
           setTimeID={setTimeID}
           promptsPerSetID={promptsPerSetID}
           subjectTypeID={subjectTypeID}
+          graduallyMoreTimeID={graduallyMoreTimeID}
         />
       ))}
-      <SmallBorderBox
-        titleText={"Stretches"}
-        className={classes.checkboxContainer}
-      >
-        <br />
-        <StyledCheckbox
-          id={stretchesCheckID}
-          defaultChecked={sessionSettings.stretches}
-          value="Include hand stretches"
-          setName={stretchesCheckID}
-        />
-        <br />
-      </SmallBorderBox>
 
       <div className={classes.buttonContainer}>
         <CenteredColumn>

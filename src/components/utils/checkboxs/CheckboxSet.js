@@ -13,6 +13,7 @@ function CheckboxSet({
   suffix,
   children,
   onClick,
+  className,
 }) {
   function onCheckChange(event) {
     onClick && onClick(event.target.value);
@@ -21,7 +22,9 @@ function CheckboxSet({
   return (
     <SmallBorderBox
       titleText={legendText}
-      className={displayAsRow ? classes.row : classes.column}
+      className={`${displayAsRow ? classes.row : classes.column} ${
+        className ? className : ""
+      }`}
     >
       {dataSet.map((data) => {
         let defValue = isRadio

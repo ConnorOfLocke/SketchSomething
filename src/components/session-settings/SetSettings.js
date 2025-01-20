@@ -19,7 +19,8 @@ function SetSettings({
 
   function onTimeChange(value) {
     setLocalState((prevState) => {
-      return { ...prevState, [setTimeID]: value };
+      const newState = { ...prevState, [setTimeID]: value };
+      return newState;
     });
   }
 
@@ -84,7 +85,9 @@ function SetSettings({
           defaultChecked={localState.graduallyMoreTime}
           value="Gradually Increase Time per Prompt"
           setName={graduallyMoreTimeID}
-          onClick={onGradualTimeChange}
+          onClick={(event) => {
+            onGradualTimeChange(event.target.checked);
+          }}
         />
         <br />
       </SmallBorderBox>

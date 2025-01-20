@@ -1,12 +1,20 @@
-.settings .checkboxContainer {
-  padding: 0 1rem;
+.settingsContainer,
+.stretchContainer {
+  margin: 0 0 1.5rem 0;
+  padding: 0;
 }
 
-.settings .buttonContainer {
-  margin-top: 1.5rem;
+.stretchContainer {
+  margin: 0 0 1.5rem 0;
+  padding: 1rem 1rem 0rem 1rem;
+}
+
+.checkboxContainer {
   padding: 0 1rem;
 }
 
 .buttonContainer {
   margin-top: 1rem;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
 }
