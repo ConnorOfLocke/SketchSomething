@@ -6,10 +6,12 @@ import { StyledButton } from "../../utils/button";
 
 function Stretches({ onStepDone }) {
   const [stretchIndex, setStretchIndex] = useState(0);
+  const [hasAnimatedIn, setHasAnimatedIn] = useState(false);
 
   const exercises = WRIST_EXERCISES;
 
   function onStretchStepDone() {
+    setHasAnimatedIn(true);
     if (stretchIndex < exercises.length - 1) {
       setStretchIndex((index) => index + 1);
     } else {
@@ -24,6 +26,7 @@ function Stretches({ onStepDone }) {
   }
 
   function onNextClick() {
+    setHasAnimatedIn(true);
     if (stretchIndex < exercises.length - 1) {
       setStretchIndex((index) => index + 1);
     }
@@ -38,6 +41,8 @@ function Stretches({ onStepDone }) {
       onTimeDone={onStretchStepDone}
       headerText={"Stretch it out!"}
       outroDelay={800}
+      animateIn={!hasAnimatedIn && stretchIndex === 0}
+      animateOut={stretchIndex === exercises.length - 1}
     >
       <div className={classes.exerciseContainer}>
         <h3 className={classes.exerciseText}>{currentStep.text}</h3>
