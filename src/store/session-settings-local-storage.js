@@ -1,7 +1,7 @@
 import { createListenerMiddleware, isAnyOf } from "@reduxjs/toolkit";
 import { sessionSettingsActions } from "./session-settings-slice";
 
-const SETTINGS_KEY = "savedSettings";
+const SETTINGS_KEY = "savedSessionSettings";
 
 const loadStoreFromLocalMemory = () => {
   const loadedItem = localStorage.getItem(SETTINGS_KEY);

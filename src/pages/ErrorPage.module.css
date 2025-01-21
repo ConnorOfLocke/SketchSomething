@@ -1,0 +1,7 @@
+.errorPage .errorText {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--text-800);
+  background-color: var(--background-100);
+  padding: 0.5rem;
+  text-align: left;
+}

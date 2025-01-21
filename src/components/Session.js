@@ -1,3 +1,4 @@
+import classes from "./Session.module.css";
 import {
   Stretches,
   PromptSet,
@@ -5,9 +6,9 @@ import {
 } from "../components/stages/timed-stages";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { BorderBox, ContentBox } from "./utils/layouts";
 import CompleteModal from "./modals/Complete";
 import { SUBJECTS } from "../data/subjects";
+import { ContentBox } from "./utils/layouts";
 
 const countdownId = "countdown";
 const stretchesId = "stretches";
@@ -27,62 +28,39 @@ function createSession(sessionSettings) {
   sessionSteps.push({ type: countdownId });
 
   //sets
-  for (let i = 0; i < sessionSettings.setQuantity; i++) {
-    let promptSubjectName = "";
-    if (sessionSettings.subjects.length > 0) {
-      promptSubjectName =
-        sessionSettings.subjects[i % sessionSettings.subjects.length];
-    } else {
-      const randomIndex = Math.floor(Math.random() * SUBJECTS.length);
-      promptSubjectName = SUBJECTS[randomIndex].name;
-    }
-
-    sessionSteps.push({
-      type: promptSetId,
-      subjectName: promptSubjectName,
-      promptSetIndex: i,
-      setTime: sessionSettings.setTime,
-      promptsPerSet: sessionSettings.promptsPerSet,
-      setQuantity: sessionSettings.setQuantity,
-      graduallyMoreTime: sessionSettings.graduallyMoreTime,
-    });
-  }
+  sessionSteps.push(
+    ...sessionSettings.sets.map((set, setIndex) => {
+      return {
+        type: promptSetId,
+        promptSetIndex: setIndex,
+        title: `Set ${1 + setIndex} of ${sessionSettings.sets.length}`,
+        ...set,
+      };
+    })
+  );
 
   return sessionSteps;
-}
-
-function getSessionName(sessionStep) {
-  switch (sessionStep.type) {
-    case countdownId:
-      return "Get ready!";
-    case stretchesId:
-      return "Stretch it out!";
-    case promptSetId:
-      return `Set ${1 + sessionStep.promptSetIndex} of ${
-        sessionStep.setQuantity
-      }`;
-    default:
-      return "Unrecognised Step type";
-  }
 }
 
 function getSessionStep(sessionStep, onStepDone) {
   switch (sessionStep.type) {
     case countdownId:
-      return <Countdown onStepDone={onStepDone} />;
+      return <Countdown key={sessionStep} onStepDone={onStepDone} />;
     case stretchesId:
       return <Stretches onStepDone={onStepDone} />;
     case promptSetId:
       return (
         <PromptSet
-          id={sessionStep}
-          time={sessionStep.setTime * 1000 * 60} //from mins to milliseconds
-          promptsPerSet={sessionStep.promptsPerSet}
-          subject={getFullSubject(sessionStep.subjectName)}
-          onStepDone={onStepDone}
+          key={sessionStep}
+          headerText={sessionStep.title}
+          time={sessionStep.time * 1000 * 60} //from mins to milliseconds
+          promptsPerSet={sessionStep.prompts}
+          subject={getFullSubject(sessionStep.subject)}
           graduallyMoreTime={sessionStep.graduallyMoreTime}
+          onStepDone={onStepDone}
         />
       );
+
     default:
       return <p>Unrecognised Step type</p>;
   }
@@ -114,14 +92,14 @@ function Session({ onSessionDone }) {
 
   return (
     <>
-      <ContentBox key={stepIndex} animate>
-        <BorderBox borderType={"background"}>
-          <header>
-            <h1>{steps && getSessionName(steps[stepIndex])}</h1>
-          </header>
-          {steps ? getSessionStep(steps[stepIndex], onStepDone) : null}
-        </BorderBox>
-      </ContentBox>
+      {!completeModalOpen && steps
+        ? getSessionStep(steps[stepIndex], onStepDone)
+        : null}
+      {completeModalOpen && (
+        <ContentBox className={classes.sessionBreak}>
+          <br />
+        </ContentBox>
+      )}
       <CompleteModal
         steps={steps}
         open={completeModalOpen}

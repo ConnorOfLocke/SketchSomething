@@ -1,16 +1,13 @@
 /* RADIO BUTTONS */
-/* adapted from https://www.youtube.com/watch?v=PlldXyuTnUw */
 
-.radioButtons {
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-/* CHECKBOX BUTTONS */
-.checkboxButtons {
-  display: flex;
-  padding: 1rem 0.5rem 0.5rem 0.5rem;
-  flex-direction: column;
-  justify-content: left;
 }

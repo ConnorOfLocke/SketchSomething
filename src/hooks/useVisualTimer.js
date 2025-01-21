@@ -1,41 +1,56 @@
 import { useEffect, useState } from "react";
 
-const useVisualTimer = (time, onTimeout, timerInterval = 30) => {
+const useVisualTimer = (
+  time,
+  initialDelay = 0,
+  outroDelay = 0,
+  onTimeout,
+  timerInterval = 30
+) => {
   const [timeCount, setTimeCount] = useState(0);
   const [pauseState, setPauseState] = useState(false);
 
   useEffect(() => {
-    if (timeCount >= time) {
+    if (timeCount >= time + outroDelay) {
       setTimeCount(0);
       onTimeout();
     }
-  }, [timeCount, time, onTimeout]);
+  }, [timeCount, time, outroDelay, onTimeout]);
 
   useEffect(() => {
     let timer = null;
-    let originalStart = new Date().getTime();
-    let lastFrameTime = originalStart;
 
-    function timerInstance() {
-      const now = new Date().getTime();
-      const timePassed = now - lastFrameTime;
-      lastFrameTime = now;
+    function startTimer() {
+      let originalStart = new Date().getTime();
+      let lastFrameTime = originalStart;
 
-      if (!pauseState) {
-        setTimeCount((curTime) => curTime + timePassed);
+      function timerInstance() {
+        const now = new Date().getTime();
+        const timePassed = now - lastFrameTime;
+        lastFrameTime = now;
+
+        if (!pauseState) {
+          setTimeCount((curTime) => curTime + timePassed);
+        }
+
+        //set the next "frame"
+        const diff = timerInterval - timePassed;
+        timer = setTimeout(timerInstance, timerInterval + diff);
       }
 
-      //set the next "frame"
-      const diff = timerInterval - timePassed;
-      timer = setTimeout(timerInstance, timerInterval + diff);
+      timer = setTimeout(timerInstance, timerInterval);
     }
 
-    timer = setTimeout(timerInstance, timerInterval);
+    if (initialDelay) {
+      timer = setTimeout(startTimer, initialDelay);
+    } else {
+      startTimer();
+    }
 
     return () => {
       clearInterval(timer);
     };
-  }, [time, onTimeout, timerInterval, pauseState]);
+  }, [time, onTimeout, timerInterval, initialDelay, pauseState]);
 
   return { timeCount, pauseState, setPauseState };
 };

@@ -2,7 +2,19 @@ import classes from "./Prompt.module.css";
 import TimedStage from "../TimedStage";
 import { useState } from "react";
 
-function Prompt({ time, onStepDone, prompt, children }) {
+const TIMEOUT_TIME = 2000;
+const OUTRO_DELAY = 800;
+
+function Prompt({
+  time,
+  onStepDone,
+  initialDelay,
+  prompt,
+  headerText,
+  children,
+  animateIn,
+  animateOut,
+}) {
   const [hideState, setHideState] = useState(true);
   const [showTimesUp, setShowTimesUp] = useState(false);
 
@@ -19,14 +31,20 @@ function Prompt({ time, onStepDone, prompt, children }) {
     onStepDone();
   }
 
-  return (
+  return showTimesUp ? (
+    /*Times up */
     <TimedStage
       key={prompt}
-      time={showTimesUp ? 2000 : time}
-      onTimeDone={showTimesUp ? onTimesUpDone : onPromptDone}
+      time={TIMEOUT_TIME}
+      initialDelay={initialDelay}
+      outroDelay={animateOut ? OUTRO_DELAY : 0}
+      onTimeDone={onTimesUpDone}
       pausable
-      hideTimer={showTimesUp}
+      hideTimer
       onPauseCallback={onPauseCallback}
+      headerText={headerText}
+      animateIn={false}
+      animateOut={animateOut}
     >
       {children}
       <div
@@ -34,9 +52,26 @@ function Prompt({ time, onStepDone, prompt, children }) {
           showTimesUp ? classes.timesUp : ""
         }`}
       >
-        <h1 className={!hideState && showTimesUp ? classes.timesUp : ""}>
-          {hideState ? "PAUSED" : showTimesUp ? "Times Up!" : prompt}
+        <h1 className={!hideState ? classes.timesUp : ""}>
+          {hideState ? "PAUSED" : "Times Up!"}
         </h1>
+      </div>
+    </TimedStage>
+  ) : (
+    /*Normal prompt */
+    <TimedStage
+      key={prompt}
+      time={time}
+      initialDelay={initialDelay}
+      onTimeDone={onPromptDone}
+      pausable
+      onPauseCallback={onPauseCallback}
+      headerText={headerText}
+      animateIn={animateIn}
+    >
+      {children}
+      <div className={`${classes.prompt} ${hideState ? classes.paused : ""}`}>
+        <h1>{hideState ? "PAUSED" : prompt}</h1>
       </div>
     </TimedStage>
   );

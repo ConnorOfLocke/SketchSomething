@@ -24,7 +24,7 @@ function SessionPage() {
   return (
     <>
       <Session onSessionDone={goHome} />
-      <ContentBox>
+      <ContentBox fadeIn>
         <StyledButton buttonType="secondary" onClick={onResetClicked}>
           Reset
         </StyledButton>
