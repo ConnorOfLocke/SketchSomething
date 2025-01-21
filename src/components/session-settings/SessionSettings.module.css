@@ -18,3 +18,8 @@
   margin-top: 1.5rem;
   padding: 0 1rem;
 }
+
+.subfoldableArea {
+  padding: 0;
+  background-color: var(--background-200);
+}

@@ -11,6 +11,7 @@ import { CenteredColumn } from "../utils/layouts";
 import SmallBorderBox from "../utils/layouts/SmallBorderBox";
 import SetSettings from "./SetSettings";
 import { SUBJECTS } from "../../data/subjects";
+import FoldableArea from "../utils/layouts/FoldableArea";
 
 const setQuantityID = "setQuantity";
 
@@ -76,27 +77,32 @@ function SessionSettings({ onConfirmSettings }) {
           Start your drawing session with some guided hand and arm stretches
         </p>
       </SmallBorderBox>
-      <CheckboxSet
-        dataSet={SET_QUANTITY}
-        setName={setQuantityID}
-        legendText={"Sets"}
-        defaultValues={sessionSettings.sets.length}
-        isRadio
-        onClick={onSetQuantityChange}
-        className={classes.settingsContainer}
-      />
-
-      {sessionSettings.sets.map((set, setIndex) => (
-        <SetSettings
-          key={setIndex}
-          set={set}
-          setIndex={setIndex}
-          setTimeID={setTimeID}
-          promptsPerSetID={promptsPerSetID}
-          subjectTypeID={subjectTypeID}
-          graduallyMoreTimeID={graduallyMoreTimeID}
+      <FoldableArea
+        headerText="Session Settings"
+        className={classes.mainFoldableArea}
+      >
+        <CheckboxSet
+          dataSet={SET_QUANTITY}
+          setName={setQuantityID}
+          legendText={"Sets"}
+          defaultValues={sessionSettings.sets.length}
+          isRadio
+          onClick={onSetQuantityChange}
+          className={classes.settingsContainer}
         />
-      ))}
+
+        {sessionSettings.sets.map((set, setIndex) => (
+          <SetSettings
+            key={setIndex}
+            set={set}
+            setIndex={setIndex}
+            setTimeID={setTimeID}
+            promptsPerSetID={promptsPerSetID}
+            subjectTypeID={subjectTypeID}
+            graduallyMoreTimeID={graduallyMoreTimeID}
+          />
+        ))}
+      </FoldableArea>
 
       <div className={classes.buttonContainer}>
         <CenteredColumn>

@@ -10,7 +10,7 @@
 }
 
 .smallBorderBox {
-  margin: 0.25rem 1rem 1.25rem 1rem;
+  margin: 0.25rem 0.25rem 1.25rem 0.25rem;
   border: 0.2rem solid var(--background-400);
   border-radius: 0.5rem;
 

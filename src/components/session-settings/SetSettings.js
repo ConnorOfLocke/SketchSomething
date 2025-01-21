@@ -48,6 +48,7 @@ function SetSettings({
       headerText={`Set ${setIndex + 1} - ${localState.prompts} ${
         localState.subject
       }`}
+      className={classes.subfoldableArea}
     >
       <CheckboxSet
         dataSet={SET_TIME}
@@ -83,12 +84,16 @@ function SetSettings({
         <StyledCheckbox
           id={`${graduallyMoreTimeID}${setIndex}`}
           defaultChecked={localState.graduallyMoreTime}
-          value="Gradually Increase Time per Prompt"
+          value="Quick to Slow Prompts"
           setName={graduallyMoreTimeID}
           onClick={(event) => {
             onGradualTimeChange(event.target.checked);
           }}
         />
+        <p>
+          Prompts will be very quick, then slow down giving you more time to
+          draw
+        </p>
         <br />
       </SmallBorderBox>
     </FoldableArea>
