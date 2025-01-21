@@ -1,7 +1,6 @@
 export const TODO = [
   "Add confietti",
   ":focus pass",
-  "More Subjects",
   "Images for the exercise step",
   "Style the Scroll bar",
   "404 page",
@@ -10,7 +9,6 @@ export const TODO = [
   "Simthsonian api for subjects",
   "Pictures for stretches",
   "Public domain subject prompts",
-  "Intro Step to confirm settings",
-  "Seperate warm up set of prompts",
   "Options to change the timing while in a prompt set",
+  "Reference Head Direction Subject",
 ];
