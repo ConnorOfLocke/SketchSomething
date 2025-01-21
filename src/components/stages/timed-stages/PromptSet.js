@@ -3,6 +3,7 @@ import Prompt from "./Prompt";
 
 function PromptSet({
   time,
+  headerText,
   promptsPerSet,
   subject,
   graduallyMoreTime,
@@ -20,6 +21,7 @@ function PromptSet({
   function onPromptDone() {
     if (promptCount + 1 >= promptsPerSet) {
       onStepDone();
+      setPromptCount(0);
     } else {
       setPromptCount((prev) => prev + 1);
       refreshPromptIndex();
@@ -38,11 +40,16 @@ function PromptSet({
       timePerPrompt * 0.5 * ((promptCount / promptsPerSet) * 2.0 - 1.0);
     timePerPrompt += timeAdjust;
   }
+
   return (
     <Prompt
       prompt={subject.prompts[promptIndex]}
       time={timePerPrompt}
       onStepDone={onPromptDone}
+      initialDelay={promptCount === 0 ? 800 : 0}
+      headerText={headerText}
+      animateIn={promptCount === 0}
+      animateOut={promptCount + 1 >= promptsPerSet}
     >
       <h3>
         {subject.name} ({promptCount + 1} of {promptsPerSet})

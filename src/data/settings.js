@@ -1,4 +1,4 @@
-export const SET_TIME = [1, 2, 5, 10, 20];
+export const SET_TIME = [2, 5, 10, 15, 20];
 export const SET_QUANTITY = [1, 2, 3, 4, 5];
 export const PROMPTS_PER_SET = [4, 8, 12, 16, 20];
 

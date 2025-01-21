@@ -2,6 +2,7 @@
 .fancyText {
   display: flex;
   justify-content: center;
+  min-height: 17.5rem;
 }
 
 .timerText {
@@ -12,9 +13,13 @@
   animation: 0.8s ease-in scale-out;
 }
 
+.timerText h1,
+.fancyText h1 {
+  font-size: xx-large;
+}
+
 .fancyText h1 {
   color: transparent;
-  font-size: xx-large;
 
   background-image: linear-gradient(
     45deg,

@@ -6,7 +6,16 @@ import { createPortal } from "react-dom";
 import { uiStateActions } from "../../store/ui-state-slice";
 import { useDispatch } from "react-redux";
 
-function Modal({ open, onConfirm, onCancel, confirmText, cancelText, children, className, props }) {
+function Modal({
+  open,
+  onConfirm,
+  onCancel,
+  confirmText,
+  cancelText,
+  children,
+  className,
+  props,
+}) {
   const modalRef = useRef();
   const dispatch = useDispatch();
 
@@ -23,7 +32,7 @@ function Modal({ open, onConfirm, onCancel, confirmText, cancelText, children, c
   return createPortal(
     <dialog
       ref={modalRef}
-      onClose={onConfirm}
+      onClose={onCancel ? onCancel : onConfirm}
       className={`${classes.modal} ${className}`}
       {...props}
     >

@@ -1,5 +1,5 @@
 export const COUNTDOWN_TEXTS = [
-  ["3", "2", "1", "Let's Jam!"],
+  ["Okay", "Three", "Two", "One", "Let's Jam!"],
   [
     "Are you ready Steve?",
     "Mick? Andy?",

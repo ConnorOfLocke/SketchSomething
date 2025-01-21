@@ -9,50 +9,59 @@ function CheckboxSet({
   defaultValues,
   legendText,
   isRadio,
+  displayAsRow = true,
   suffix,
   children,
+  onClick,
+  className,
 }) {
+  function onCheckChange(event) {
+    onClick && onClick(event.target.value);
+  }
+
   return (
-    <>
-      <SmallBorderBox
-        titleText={legendText}
-        className={isRadio ? classes.radioButtons : classes.checkboxButtons}
-      >
-        {dataSet.map((data) => {
-          let defValue = isRadio
-            ? defaultValues && defaultValues === data
-            : defaultValues &&
-              defaultValues.findIndex((value) => value === data) >= 0;
+    <SmallBorderBox
+      titleText={legendText}
+      className={`${displayAsRow ? classes.row : classes.column} ${
+        className ? className : ""
+      }`}
+    >
+      {dataSet.map((data) => {
+        let defValue = isRadio
+          ? defaultValues && defaultValues === data
+          : defaultValues &&
+            defaultValues.findIndex((value) => value === data) >= 0;
 
-          const id = `${setName}_${data}`;
+        const id = `${setName}_${data}`;
 
-          const box = isRadio ? (
-            <StyledRadio
-              key={id}
-              id={id}
-              setName={setName}
-              data={data}
-              value={data}
-              defaultChecked={defValue}
-              suffix={suffix}
-            />
-          ) : (
-            <StyledCheckbox
-              key={id}
-              id={id}
-              setName={setName}
-              data={data}
-              value={data}
-              defaultChecked={defValue}
-              suffix={suffix}
-            />
-          );
+        const box = isRadio ? (
+          <StyledRadio
+            key={id}
+            id={id}
+            setName={setName}
+            data={data}
+            value={data}
+            defaultChecked={defValue}
+            suffix={suffix}
+            onClick={onCheckChange}
+          />
+        ) : (
+          <StyledCheckbox
+            key={id}
+            id={id}
+            setName={setName}
+            data={data}
+            value={data}
+            defaultChecked={defValue}
+            suffix={suffix}
+            onClick={onCheckChange}
+          />
+        );
 
-          return box;
-        })}
-        {children}
-      </SmallBorderBox>
-    </>
+        return box;
+      })}
+      {children}
+    </SmallBorderBox>
   );
 }
 
