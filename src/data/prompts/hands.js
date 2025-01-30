@@ -85,6 +85,7 @@ import ThumbsUp_04 from "../hands/ThumbsUp_04_small.png";
 const hands = {
   name: "Hands",
   isImagePrompt: true,
+  isRotatable: true,
   prompts: [
     Clawed_01,
     Clawed_02,

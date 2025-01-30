@@ -60,6 +60,30 @@
   filter: blur(20px);
 }
 
+.rotate_5deg {
+  transform: rotate(5deg);
+}
+
+.rotate_10deg {
+  transform: rotate(10deg);
+}
+
+.rotate_15deg {
+  transform: rotate(10deg);
+}
+
+.rotate_neg5deg {
+  transform: rotate(-5deg);
+}
+
+.rotate_neg10deg {
+  transform: rotate(-5deg);
+}
+
+.rotate_neg15deg {
+  transform: rotate(-15deg);
+}
+
 @keyframes scale-bump {
   0% {
     transform: scale(1);
