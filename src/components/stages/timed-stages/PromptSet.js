@@ -44,6 +44,7 @@ function PromptSet({
   return (
     <Prompt
       prompt={subject.prompts[promptIndex]}
+      isImagePrompt={subject.isImagePrompt}
       time={timePerPrompt}
       onStepDone={onPromptDone}
       initialDelay={promptCount === 0 ? 800 : 0}

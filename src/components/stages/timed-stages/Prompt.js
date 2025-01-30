@@ -10,6 +10,7 @@ function Prompt({
   onStepDone,
   initialDelay,
   prompt,
+  isImagePrompt,
   headerText,
   children,
   animateIn,
@@ -48,9 +49,9 @@ function Prompt({
     >
       {children}
       <div
-        className={`${classes.prompt} ${hideState ? classes.paused : ""} ${
-          showTimesUp ? classes.timesUp : ""
-        }`}
+        className={`${classes.prompt} ${classes.timesUp} ${
+          hideState ? classes.paused : ""
+        } ${isImagePrompt ? classes.imagePromptTimesUp : ""}`}
       >
         <h1 className={!hideState ? classes.timesUp : ""}>
           {hideState ? "PAUSED" : "Times Up!"}
@@ -70,8 +71,22 @@ function Prompt({
       animateIn={animateIn}
     >
       {children}
-      <div className={`${classes.prompt} ${hideState ? classes.paused : ""}`}>
-        <h1>{hideState ? "PAUSED" : prompt}</h1>
+      <div
+        className={`${classes.prompt} ${
+          isImagePrompt ? classes.imagePrompt : ""
+        } ${hideState ? classes.paused : ""}`}
+      >
+        {isImagePrompt ? (
+          <div>
+            <img
+              src={prompt}
+              alt={prompt}
+              className={`${hideState ? classes.paused : ""}`}
+            />
+          </div>
+        ) : (
+          <h1>{hideState ? "PAUSED" : prompt}</h1>
+        )}
       </div>
     </TimedStage>
   );

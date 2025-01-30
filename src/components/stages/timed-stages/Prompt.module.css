@@ -5,6 +5,10 @@
   padding: 0.5rem;
   border-radius: 1rem;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   transition: background-color 0.5s ease-in-out;
 }
 
@@ -12,8 +16,21 @@
   background-color: var(--secondary-400);
 }
 
+.prompt.imagePromptTimesUp {
+  min-height: 28rem;
+}
+
 .prompt.paused {
   background-color: var(--primary-800);
+}
+
+.prompt.paused.timesUp {
+  background-color: var(--secondary-800);
+}
+
+.prompt.imagePrompt {
+  background-color: var(--image-prompt-backround);
+  min-height: 28rem;
 }
 
 .prompt h1 {
@@ -22,7 +39,25 @@
 }
 
 .prompt h1.timesUp {
+  color: var(--text-100);
   animation: 0.5s scale-bump;
+}
+
+.prompt h1 {
+  color: var(--text-200);
+}
+
+.prompt.paused.timesUp h1.timesUp {
+  color: var(--text-100);
+}
+
+.prompt img {
+  transition: filter 0.5s ease-in-out;
+  height: 26rem;
+}
+
+.prompt img.paused {
+  filter: blur(20px);
 }
 
 @keyframes scale-bump {

@@ -1,7 +1,7 @@
 import classes from "./SessionSettings.module.css";
 import { CheckboxSet, StyledCheckbox } from "../utils/checkboxs";
 import FoldableArea from "../utils/layouts/FoldableArea";
-import { SUBJECTS } from "../../data/subjects";
+import { SUBJECTS } from "../../data/prompts/prompts";
 import { SET_TIME, PROMPTS_PER_SET } from "../../data/settings";
 import SmallBorderBox from "../utils/layouts/SmallBorderBox";
 import { useState } from "react";
