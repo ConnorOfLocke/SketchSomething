@@ -8,7 +8,7 @@ function ErrorPage() {
   const navigate = useNavigate();
 
   function goHome() {
-    navigate("/");
+    navigate("");
   }
 
   return (

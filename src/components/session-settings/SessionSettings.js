@@ -10,7 +10,7 @@ import StyledButton from "../utils/button/StyledButton";
 import { CenteredColumn } from "../utils/layouts";
 import SmallBorderBox from "../utils/layouts/SmallBorderBox";
 import SetSettings from "./SetSettings";
-import { SUBJECTS } from "../../data/subjects";
+import { SUBJECTS } from "../../data/prompts/prompts";
 import FoldableArea from "../utils/layouts/FoldableArea";
 
 const setQuantityID = "setQuantity";
