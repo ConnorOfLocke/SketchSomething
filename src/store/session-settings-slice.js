@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SET_TIME, PROMPTS_PER_SET } from "../data/settings";
-import { SUBJECTS } from "../data/subjects";
+import { SUBJECTS } from "../data/prompts/prompts";
 
 const defaultSessionSettings = {
   sets: [

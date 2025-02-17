@@ -2,6 +2,7 @@
   --background-image: url("../public/cork-board.png");
   --primary-content-background: #ebebfa;
   --modal-normal-backdrop: #0a0a29;
+  --image-prompt-backround: #171202;
 
   --text-50: #efedf8;
   --text-100: #dfdbf0;
@@ -68,6 +69,7 @@
   --background-image: url("../public/stressed_linen.webp");
   --primary-content-background: #0a0a29;
   --modal-normal-backdrop: #1f1f7a;
+  --image-prompt-backround: #171202;
 
   --text-50: #0a0712;
   --text-100: #130f24;

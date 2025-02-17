@@ -43,7 +43,8 @@ function PromptSet({
 
   return (
     <Prompt
-      prompt={subject.prompts[promptIndex]}
+      subject={subject}
+      promptIndex={promptIndex}
       time={timePerPrompt}
       onStepDone={onPromptDone}
       initialDelay={promptCount === 0 ? 800 : 0}
